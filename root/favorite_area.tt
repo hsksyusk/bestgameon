@@ -1,0 +1,16 @@
+<div class="favorite_area">
+	<span id="unfavorite_button" class="unfavorite_button [% UNLESS c.user_exists && faved_flag && !edit_flag %]hidden[% END %]">
+		<input class="unfavorite_button_img button gray bigrounded" type="button" value="▼UnFaved" title="お気に入り登録を解除します" />
+		<input type="hidden" id="userid" value="[% userid %]" />
+	</span>
+	<span id="favorite_button" class="favorite_button [% UNLESS c.user_exists && !faved_flag && !edit_flag %]hidden[% END %]">
+		<input class="favorite_button_img button yellow bigrounded" type="button" value="▲Favorite!" title="お気に入り登録にします" />
+		<input type="hidden" id="userid" value="[% userid %]" />
+	</span>
+	<span id="favorite_loading" class="favorite_loading hidden">
+		<img src="[% base %]Bestgame/root/static/images/favorite_loading.gif" alt="ロード画像" />
+	</span>
+	<span id="favorite_error" class="favorite_error hidden">
+		<p>エラー！</p>
+	</span>
+</div>

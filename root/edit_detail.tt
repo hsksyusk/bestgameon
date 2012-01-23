@@ -1,0 +1,75 @@
+<div id="container_edit" class="clearfix">
+	<div id="container_bordar" class="clearfix">
+		<div class="select_top">
+			<button id="allsearch" class="button blue bigrounded" >一括検索</button>
+			<button id="register" class="button red bigrounded" >登録</button>
+			<img src="[% base %]Bestgame/root/static/images/favorite_loading.gif" id="regist_wait" class="hidden" />
+			<input type="checkbox" id="draft" >下書きとして保存</input>
+		</div>
+		<div class="colmask leftmenu"> 
+			<div class="colright"> 
+				<div class="col1wrap"> 
+					<div class="col1"> 
+						[% loop_count = 0 %]
+						[% WHILE loop_count < 10 %]
+							[% loop_count = loop_count + 1 %]
+							<div class="itemlistwrap">
+								<input class="target_searchbox" value="searchbox[% loop_count %]" type="hidden" />
+								<div id="itemlist_frame[% loop_count %]" class="itemlist_frame">
+									<div id="loader_head[% loop_count %]" class="loader loader_head"><p>now loading</p><img src="[% base %]Bestgame/root/static/images/ajax_loader_edit.gif" alt="loading image" /></div>
+									<div id="itemlist[% loop_count %]" class="itemlist"><p>まだ検索していません。</p></div>
+									<div id="loader_foot[% loop_count %]" class="loader loader_foot"><p>now loading</p><img src="[% base %]Bestgame/root/static/images/ajax_loader_edit.gif" alt="loading image" /></div>
+								</div>
+							</div>
+						[% END %]
+						<div class="itemlistwrap">
+							<div id="itemlist_intro" class="itemlist_frame">
+								<h3>使い方</h3>
+								<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_edit01.png" />
+								<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_edit02.png" />
+							</div>
+						</div>
+					</div> 
+				</div> 
+				<div id="sortList" class="col2"> 
+					[% loop_count = 0 %]
+					[% WHILE loop_count < 10 %]
+						[% loop_count = loop_count + 1 %]
+						[%- IF dataload_flag == 1 -%]
+							[%- item_count = loop_count - 1; -%]
+						[% END %]
+						<div id="searchbox[% loop_count %]" class="searchbox" >
+							<input class="target_itemlist_frame" value="itemlist_frame[% loop_count %]" type="hidden" />
+							<div class="searchbox_searcharea">
+								<input id="searchasin[% loop_count %]" type="hidden" class="searchasin"[%- IF dataload_flag == 1 -%] value="[% items.${item_count}.asin | html %]"[% END %]/> 
+								<span class="rank_value">[% loop_count %]位：</span><input id="searchtext[% loop_count %]" class="searchtext" type="text"[%- IF dataload_flag == 1 -%] value="[% items.${item_count}.title | html %]"[% END %]/>
+								<input id="re_search[% loop_count %]" value="再検索" type="button" class="button_small re_search yellow bigrounded" /> 
+							</div>
+							<div id="searchbox_image[% loop_count %]" class="searchbox_image">
+								[%- IF dataload_flag == 1 -%]
+									[% IF items.${item_count}.imageurl == '' %]
+										<img src="http://g-ec2.images-amazon.com/images/G/09/x-site/icons/no-img-sm.gif" alt="[% items.${item_count}.title | html %]" />
+									[% ELSE %]
+										<img src="[% items.${item_count}.imageurl | html %]" alt="[% items.${item_count}.title | html %]" />
+									[% END %]
+								[% END %]
+							</div>
+							<div id="comment_block[% loop_count %]" class="comment_block">
+								<textarea id="comment[% loop_count %]" cols="38" rows="6" class="commentarea[%- IF dataload_flag != 1 -%] toggleval[% END %]">[%- IF dataload_flag == 1 -%][% items.${item_count}.comment | html %][% ELSE %]コメントを書いてください（任意）[% END %]</textarea>
+							</div>
+						</div>
+					[% END %]
+				</div> 
+			</div> 
+		</div> 
+	</div> 
+</div>
+[%- IF dataload_flag == 1 -%]
+<script type="text/javascript">
+<!--
+changeviewonfirstsearch();
+firstsearch = false;
+-->
+</script>
+[% END %]
+<!-- content -->

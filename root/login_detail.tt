@@ -1,0 +1,7 @@
+<div id="smallwindow">
+[%- IF c.user_exists -%]
+  <p>ログインしています。</p>
+[%- ELSE -%]
+  <p>この操作をするためには、ログインする必要があります。<br />画面右上からTwitterでログインできます。</p>
+[%- END -%]
+</div>

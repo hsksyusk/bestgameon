@@ -1,0 +1,88 @@
+regist:
+  rank1:
+    NOT_BLANK: 1位のゲームが選択されていません
+  rank2:
+    NOT_BLANK: 2位のゲームが選択されていません
+  rank3:
+    NOT_BLANK: 3位のゲームが選択されていません
+  rank4:
+    NOT_BLANK: 4位のゲームが選択されていません
+  rank5:
+    NOT_BLANK: 5位のゲームが選択されていません
+  rank6:
+    NOT_BLANK: 6位のゲームが選択されていません
+  rank7:
+    NOT_BLANK: 7位のゲームが選択されていません
+  rank8:
+    NOT_BLANK: 8位のゲームが選択されていません
+  rank9:
+    NOT_BLANK: 9位のゲームが選択されていません
+  rank10:
+    NOT_BLANK: 10位のゲームが選択されていません
+  comment1:
+    LENGTH: 1位のコメントが長すぎます
+  comment2:
+    LENGTH: 2位のコメントが長すぎます
+  comment3:
+    LENGTH: 3位のコメントが長すぎます
+  comment4:
+    LENGTH: 4位のコメントが長すぎます
+  comment5:
+    LENGTH: 5位のコメントが長すぎます
+  comment6:
+    LENGTH: 6位のコメントが長すぎます
+  comment7:
+    LENGTH: 7位のコメントが長すぎます
+  comment8:
+    LENGTH: 8位のコメントが長すぎます
+  comment9:
+    LENGTH: 9位のコメントが長すぎます
+  comment10:
+    LENGTH: 10位のコメントが長すぎます
+amazon:
+  keyword:
+    NOT_BLANK: キーワードを入れてください
+search:
+  keyword:
+    NOT_BLANK: キーワードを入れてください
+email_suggest:
+  mailaddress:
+    NOT_BLANK: メールアドレスを入力してください
+    EMAIL_LOOSE: 正しくないメールアドレスです
+email_regist:
+  mailaddress:
+    NOT_BLANK: メールアドレスを入力してください
+    EMAIL_LOOSE: 正しくないメールアドレスです
+good:
+  to_userid:
+    NOT_BLANK: ユーザーIDが取得できません
+  asin:
+    NOT_BLANK: ASINが取得できません
+favorite:
+  to_userid:
+    NOT_BLANK: ユーザーIDが取得できません
+contact:
+  name:
+    NOT_BLANK: 名前が入力されていません
+  email:
+    EMAIL_LOOSE: 正しくないメールアドレスです
+  comment:
+    NOT_BLANK: 内容が入力されていません
+comment:
+  to_userid:
+    NOT_BLANK: ユーザーIDが取得できません
+  asin:
+    NOT_BLANK: ASINが取得できません
+  comment:
+    NOT_BLANK: コメントを入力してください
+maintenance:
+  birthyear:
+    UINT: 生まれた年（西暦）：正しい値ではありません
+  birthday_month:
+    UINT: 誕生日：月が正しい値ではありません
+    BETWEEN: 誕生日：月が正しい値ではありません
+  birthday_day:
+    UINT: 誕生日：日が正しい値ではありません
+    BETWEEN: 誕生日：日が正しい値ではありません
+  url:
+    HTTP_URL: URL：正しくないURLです

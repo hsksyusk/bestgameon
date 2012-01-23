@@ -1,0 +1,4 @@
+[% INCLUDE 'head_callback.tt' %]
+[% INCLUDE 'header_small.tt' %]
+[% INCLUDE 'callback_detail.tt' %]
+[% INCLUDE 'foot.tt' %]

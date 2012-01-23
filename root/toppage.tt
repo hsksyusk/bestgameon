@@ -1,0 +1,103 @@
+[% USE TimeDate %]
+<div id="container" class="toppage">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<div class="fixwide">
+				<div id="toppage_info">
+					<p><span class="bold">自分だけのゲームランキングを作ろう！</span></p>
+					<p>BESTGAMEONは、あなただけのゲームランキングを作ることができるウェブサービスです。</p>
+					<p class="text_right"><a href="http://bestgameon.net/start" ><img src="[% base %]Bestgame/root/static/images/arrow.png" alt="loading image" /> もっと詳しく...</a></p>
+					<p><span class="bold">お知らせ</span></p>
+					<ul>
+						<li>04/28 <a href="http://bestgameon.net/blog/?p=79" target="_blank">「BESTGAMEON みんなのゲームランキング」正式リリース！</a></li>
+						<li>04/27 <a href="http://bestgameon.net/blog/?p=76" target="_blank">利用規約、プライバシーポリシーを策定しました。</a></li>
+						<li>04/24 <a href="http://bestgameon.net/blog/?p=65" target="_blank">総合ランキングをリリースしました！</a></li>
+						<li>04/23 <a href="http://bestgameon.net/blog/?p=49" target="_blank">もっと見る機能、RSS出力機能を追加しました！</a></li>
+						<li>04/21 <a href="http://bestgameon.net/blog/?p=41" target="_blank">マイページをリリースしました！</a></li>
+						<li>04/18 <a href="http://bestgameon.net/blog/?p=28" target="_blank">並べ替え機能を追加しました！</a></li>
+					</ul>
+					<p class="text_right"><a href="http://bestgameon.net/blog" target="_blank"><img src="[% base %]Bestgame/root/static/images/arrow.png" alt="loading image" /> もっと読む...</a></p>
+				</div>
+
+				<div class="toppagebox newarrival left">
+					<h4><a href="http://bestgameon.net/newranking" >新着ランキング</a></h4>
+					<a href="http://bestgameon.net/newranking_rss" class="rss_icon" target="_blank" ><img src="http://bestgameon.net/Bestgame/root/static/images/rss_icon.png" alt="RSS" ></a>
+					[% FOREACH r = history %]
+					<div class="user_ranking clearfix">
+						<a href="http://bestgameon.net/rank/[%- r.twitter_user.twitter_user -%]" class="user_icon"><img src="http://img.tweetimag.es/i/[%- r.twitter_user.twitter_user -%]_m" alt="[%- r.twitter_user.twitter_user -%]" /></a>
+						<p><a href="http://bestgameon.net/rank/[%- r.twitter_user.twitter_user -%]" >[%- r.twitter_user.twitter_user -%]さんのランキング</a></p>
+						<p class="create_date">[%- TimeDate.parse(r.ranking_create).format('%m/%d') -%] 作成</p>
+					</div>
+					[% END %]
+					<p class="text_right"><a href="http://bestgameon.net/newranking" ><img src="[% base %]Bestgame/root/static/images/arrow.png" alt="loading image" /> もっと見る...</a></p>
+				</div>
+		
+				<div class="toppagebox famous right">
+					<h4><a href="http://bestgameon.net/famousranking" >人気のランキング</a></h4>
+					[% FOREACH f = famous %]
+						<div class="user_ranking clearfix">
+							<a href="http://bestgameon.net/rank/[% f.twitter_user_to_userid.twitter_user %]" class="user_icon"><img src="http://img.tweetimag.es/i/[% f.twitter_user_to_userid.twitter_user %]_m" alt="[% f.twitter_user_to_userid.twitter_user %]" /></a>
+							<p><a href="http://bestgameon.net/rank/[% f.twitter_user_to_userid.twitter_user %]" >[% f.twitter_user_to_userid.twitter_user %]さんのランキング</a></p> 
+							<p class="good_count">
+								[% IF f.get_column('count_good') > 10 %]
+									<span class="good_list_abbr">
+										<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+										<span class="good_number onclick" >[% f.get_column('count_good') %]</span>
+										<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+									</span>
+									<span class="good_list hidden">
+								[% ELSE %]
+									<span class="good_list">
+								[% END %]
+								[% FOREACH i = [1..f.get_column('count_good')] %]<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />[% END %]
+									</span>
+							</p>
+						</div>
+					[% END %]
+					<p class="text_right"><a href="http://bestgameon.net/famousranking" ><img src="[% base %]Bestgame/root/static/images/arrow.png" alt="loading image" /> もっと見る...</a></p>
+				</div>
+		
+				<div class="toppagebox allranking left">
+					<h4><a href="http://bestgameon.net/allranking" >総合ランキング</a></h4>
+					[% loop_count = 1 %]
+					[% FOREACH g = allranking %]
+						<div class="user_ranking clearfix">
+							<p>[% loop_count %]位：<a href="http://bestgameon.net/allranking#rank[% loop_count %]" >[% g.title %]</a></p> 
+						<p class="top_point">[%- g.point -%]<span class="point_unit">POINT</span></p>
+					</div>
+						[% loop_count = loop_count + 1 %]
+					[% END %]
+					<p class="text_right"><a href="http://bestgameon.net/allranking" ><img src="[% base %]Bestgame/root/static/images/arrow.png" alt="loading image" /> もっと見る...</a></p>
+				</div>
+		
+				<div class="toppagebox goodgame right">
+					<h4><a href="http://bestgameon.net/goodgame" >GOOD!の多いゲーム</a></h4>
+					[% FOREACH g = goodgame %]
+						<div class="user_ranking clearfix">
+							<p><a href="http://bestgameon.net/game/[% g.asin %]" >[% g.title %]</a></p> 
+							<p class="good_count">
+							[% IF g.count_good > 10 %]
+								<span class="good_list_abbr">
+									<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+									<span class="good_number onclick" >[% g.count_good %]</span>
+									<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+								</span>
+								<span class="good_list hidden">
+							[% ELSE %]
+								<span class="good_list">
+							[% END %]
+							[% FOREACH i = [1..g.count_good] %]<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />[% END %]
+								</span>
+							</p>
+					</div>
+					[% END %]
+					<p class="text_right"><a href="http://bestgameon.net/goodgame" ><img src="[% base %]Bestgame/root/static/images/arrow.png" alt="loading image" /> もっと見る...</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>
+

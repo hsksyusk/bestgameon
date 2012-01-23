@@ -1,0 +1,33 @@
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<div class="fixwide contact">
+				<h1 class="generic_contents_title">お問い合わせ完了</h1>
+				<p>以下の内容でお問い合わせを承りました。</p>
+
+				<div class="contact_detail">
+					<div class="items clearfix">
+						<label>お名前</label>
+						<div class="param"><p>[% username %]</p></div>
+					</div>
+					<div class="items clearfix">
+						<label>Email</label>
+						<div class="param"><p>[% email %]</p></div>
+					</div>
+					<div class="items clearfix">
+						<label>Twitter ID</label>
+						<div class="param"><p>[% twitter_id %]</p></div>
+					</div>
+					<div class="items clearfix">
+						<label>内容</label>
+						<div class="param"><p>[% FILTER html_line_break -%][% comment %][% END %]</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>
+

@@ -1,0 +1,58 @@
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<div class="fixwide about">
+				<h1 class="generic_contents_title">BESTGAMEONについて</h1>
+				<p>BESTGAMEONは、あなただけのゲームランキングを作ることができるウェブサービスです。</p>
+				<p>はじめてお越しの方は、はじめてのBESTGAMEONをご覧ください。</p>
+				<p class="catchcopy"><a href="http://bestgameon.net/start" class="yellow button bigrounded">はじめてのBESTGAMEON</a></p>
+				<h3>何のためのサイト？</h3>
+				<p>「自分の一番好きなゲームはなんだろう……」</p>
+				<p>「好きなゲームを10本選ぶとしたら……」</p>
+				<p>ゲーム好きなら誰しもが考えるそんなことを、管理人もよく考えます。</p>
+				<p>が、そんな個人的なゲームランキングは、考えるだけで胸の中にしまっていたり、</p>
+				<p>せいぜい仲間内でしか語られることはありません。</p>
+				<p>もっといろんな人のゲームランキングが見てみたい！</p>
+				<p>そのゲームに対する思いの丈を聞きたい！</p>
+				<p>そして俺の思いも聞け！</p>
+				<p>ということで、このサイトを立ち上げました。</p>
+				<h3>作ったきっかけ</h3>
+				<p>直接のきっかけは、podcast <a href="http://www.misikika.com/gamenou/" target="_blank">ゲーム脳ばと</a> でした。</p>
+				<p>この第43回「ゲーム脳ばとが選ぶ好きなゲーム10本」は、</p>
+				<p>お三方それぞれが選んだゲームについて語るという企画で、</p>
+				<p>これが大変おもしろく、</p>
+				<p>さらに一人１時間以上語っているにもかかわらず時間が足りない。</p>
+				<ul>
+					<li><a href="http://www.misikika.com/gamenou/?p=240" target="_blank">第043回「ゲーム脳ばとが選ぶ好きなゲーム10本」その1</a></li>
+					<li><a href="http://www.misikika.com/gamenou/?p=242" target="_blank">第043回「ゲーム脳ばとが選ぶ好きなゲーム10本」その2</a></li>
+					<li><a href="http://www.misikika.com/gamenou/?p=244" target="_blank">第043回「ゲーム脳ばとが選ぶ好きなゲーム10本」その3</a></li>
+				</ul>
+				<p>この放送を聴いて、もっといろんな人のも聴いてみたい！</p>
+				<p>と、矢も盾もたまらず、このサービスを作り始めました。</p>
+				<h3>とりあえず、</h3>
+				<p>ランキングを作ってみてください。</p>
+				<p>やったことのあるゲームを挙げてゆくと、10本はすぐ超えるはずです。</p>
+				<p>そしてここからが<span class="erase">本当の地獄だ</span>悩みどころ。</p>
+				<p>挙げたゲームを10本に絞っていきます。</p>
+				<p>10本に絞るために、泣く泣くランク外に落とすゲームもあるでしょう。</p>
+				<p>そういう血涙のうえに作られるからこそ、このランキングには価値があるのです。</p>
+				<p>そうして順位を決め、それぞれプレイしたことを思い出しながらコメントを書いていくと、</p>
+				<p>もう日もとっぷりと暮れています。</p>
+				<p>（僕も最初にランキングを作ったときは、まる１日かかりました。）</p>
+				<p>一日を無駄にした後悔と、変な充足感を胸に登録ボタンを押してください。</p>
+				<p>そこにはあなただけのゲームランキングが……</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_ranking.png" />
+				<h3>運営について</h3>
+				<p>当サービスは、細越佑介(<a href="http://twitter.com/hsksyusk" target="_blank">@hsksyusk</a>)個人が運営しています。</p>
+				<h3>謝辞</h3>
+				<p>当サービスを作るにあたって、直接的なきっかけを与えてくれたpodcast <a href="http://www.misikika.com/gamenou/" target="_blank">ゲーム脳ばと</a> のお三方には、毎週楽しませていただいていることを含めて、深く感謝しています。</p>
+				<p>サイトに使用されているグラフィックをすべてデザインし、またサイトデザインにも多くの助言を与えてもらい、サービスの最初の利用者になってくれた奥さんにも、心より感謝しています。</p>
+				<div id="spacer"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>
+

@@ -1,0 +1,78 @@
+[% USE TimeDate %]
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<h1 class="generic_contents_title float_left">総合ゲームランキング</h1>
+			<a href="[% base %]blog/?p=65" target="_BLANK" class="title_codicil">集計方法は？</a>
+
+			<div class="ranking_body">
+				[% loop_count = 1 + (pager.current_page - 1) * 10 %]
+				[% FOREACH game = allranking %]
+					<div class="ranking_item">
+						<div class="itemtitle [% IF pager.current_page != 1 %]under_top10[% END %]" id="rank[% loop_count %]">
+							<p class="point">[% game.point %]<span class="point_unit">POINT</span></p>
+							<h3>[% IF pager.current_page != 1 %][% loop_count %]位：[% END %]<a href="http://bestgameon.net/game/[% game.asin %]" >[% game.title %]</a></h3>
+						</div>
+						<div class="itembox">
+							<div class="itemcomment">
+								<h4>このゲームの順位とコメント</h4>
+								[% comment_loop_count = 0 %]
+								[% FOREACH item = game.comment %]
+									<div class="user_comment_container">
+										<div class="user_comment">
+											<p><a href="http://bestgameon.net/rank/[%- item.twitter_user.twitter_user -%]" >[%- item.twitter_user.twitter_user -%]</a>：[%- item.rank -%]位<br/>[% FILTER truncate(120,'...<a href="http://bestgameon.net/rank/' _ item.twitter_user.twitter_user _ '#rank' _ item.rank _ '">もっと読む</a>') %][%- item.comment -%][%- END %]</p>
+											[% INCLUDE 'good_area.tt' %]
+										</div>
+									</div>
+									<a href="http://bestgameon.net/rank/[%- item.twitter_user.twitter_user -%]" class="user_icon"><img src="http://img.tweetimag.es/i/[%- item.twitter_user.twitter_user -%]_m" alt="[%- item.twitter_user.twitter_user -%]" /></a>
+									[% comment_loop_count = loop_count + 1 %]
+								[% END %]
+							</div>
+						</div>
+						<div class="itemimage">
+							<a href="http://bestgameon.net/game/[% game.asin %]" >
+							[% IF game.imageurl == '' %]
+								<img class="itemimage_big" src="http://g-ec2.images-amazon.com/images/G/09/x-site/icons/no-img-sm.gif" alt="[% game.title %]" />
+							[% ELSE %]
+								<img class="itemimage_big" src="[% game.imageurl %]" alt="[% game.title %]" />
+							[% END %]
+							</a>
+							<br/>
+							<a href="[% game.url %]" target="_blank" ><img class="amazon_button" src="[% base %]Bestgame/root/static/images/remote-buy-jp3.gif" alt="Amazonの詳細ページへ" /></a>
+						</div>
+					</div>
+					[% loop_count = loop_count + 1 %]
+				[% END %]
+				<div id="ranking_item_end"></div>
+			</div>
+			<div class="page" >
+				<ul>
+					[% IF pager.current_page == pager.first_page %]
+						<li><p class="bigrounde current">&laquo; First</p></li>
+					[% ELSE %]
+						<li><a href="http://bestgameon.net/allranking" class="button green bigrounde" >&laquo; First</a></li>
+					[% END %]
+			
+					[% FOREACH num = pager.pages_in_navigation %]
+						[% IF num == pager.current_page %]
+							<li><p class="bigrounde current">[% num %]</p></li>
+						[% ELSE %]
+							<li><a href="http://bestgameon.net/allranking?page=[% num %]" class="button green bigrounde" >[% num %]</a></li>
+						[% END %]
+					[% END %]
+			
+					[% IF pager.current_page == pager.last_page %]
+						<li><p class="bigrounde current">Last &raquo;</p></li>
+					[% ELSE %]
+						<li><a href="http://bestgameon.net/allranking?page=[% pager.last_page %]" class="button green bigrounde">Last &raquo;</a></li>
+					[% END %]
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+	<br/>
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>

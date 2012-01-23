@@ -1,0 +1,15 @@
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<div class="fixwide advertise">
+				<h1 class="generic_contents_title">広告掲載について</h1>
+				<p>BESTGAMEONでは、広告を出稿して頂ける企業様を募集しております。</p>
+				<p>広告に関する問い合せは、<a href="http://bestgameon.net/contact" >こちらのお問い合わせフォーム</a>より承っております。</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>
+

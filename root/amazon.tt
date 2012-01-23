@@ -1,0 +1,57 @@
+[%- IF error.has_error %]
+	[%- FOREACH msg IN error.messages('search') %]
+		<p>[% msg | html %]</p>
+	[%- END %]
+[% ELSE %]
+	<script type="text/javascript" src="[% base %]Bestgame/root/static/js/amazon.js"></script>
+	[%- firstitem = 1 %]
+	[% FOREACH e = entries %]
+	<div class="float"[%- IF firstitem == 1 %][%- firstitem = 0 %] id="firstitem"[% END %]>
+		<span class="item_click onclick" title="ゲームを選択 - [% e.title | html %]" >
+			<input type="hidden" id="Asin" value="[% e.Asin | html %]" />
+			<input type="hidden" id="title" value="[% e.title | html %]" />
+			<input type="hidden" id="ImageUrlSmall" value="[% e.ImageUrlSmall | html %]" />
+			[% IF e.ImageUrlSmall == '' %]<img class="img_game_small" src="http://g-ec2.images-amazon.com/images/G/09/x-site/icons/no-img-sm.gif" alt="[% e.title | html %]" />
+			[% ELSE %]<img class="img_game_small" src="[% e.ImageUrlSmall | html %]" alt="[% e.title | html %]" />
+			[% END %]
+			<br/>[% FILTER truncate(24) %][% e.title | html %][% END %]
+		</span>
+		<p><a href="http://bestgameon.net/game/[% e.Asin | html %]" target="_blank" >アイテムページへ</a></p>
+	</div>
+	[% END %]
+	<div class="page" >
+		<ul>
+			[% IF pager.current_page == pager.first_page %]
+				<li><p class="bigrounde current">&laquo; First</p></li>
+			[% ELSE %]
+				<li><p class="paging_edit button green bigrounde" >
+					&laquo; First
+					<input type="hidden" id="keyword" value="[% keyword | html %]" />
+					<input type="hidden" id="page" value="1" />
+				</p></li>
+			[% END %]
+	
+			[% FOREACH num = pager.pages_in_navigation %]
+				[% IF num == pager.current_page %]
+					<li><p class="bigrounde current">[% num %]</p></li>
+				[% ELSE %]
+					<li><p class="paging_edit button green bigrounde" >
+						[% num %]
+						<input type="hidden" id="keyword" value="[% keyword | html %]" />
+						<input type="hidden" id="page" value="[% num %]" />
+					</p></li>
+				[% END %]
+			[% END %]
+	
+			[% IF pager.current_page == pager.last_page %]
+				<li><p class="bigrounde current">Last &raquo;</p></li>
+			[% ELSE %]
+				<li><p class="paging_edit button green bigrounde" >
+					Last &raquo;
+					<input type="hidden" id="keyword" value="[% keyword | html %]" />
+					<input type="hidden" id="page" value="[% pager.last_page %]" />
+				</p></li>
+			[% END %]
+		</ul>
+	</div>
+[%- END %]

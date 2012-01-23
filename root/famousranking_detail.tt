@@ -1,0 +1,62 @@
+[% USE TimeDate %]
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<h1 class="generic_contents_title">人気のゲームランキング</h1>
+			<div class="famousranking_body">
+				[% FOREACH f = famous %]
+					<div class="ranklist clearfix">
+						<div class="user_name_container">
+							<div class="user_name">
+								<h2><a href="http://bestgameon.net/rank/[%- f.twitter_user_to_userid.twitter_user -%]" >[%- f.twitter_user_to_userid.twitter_user -%]さんのゲームランキング</a></h2>
+							<p class="good_count famous_good">
+								[% IF f.get_column('count_good') > 10 %]
+									<span class="good_list_abbr">
+										<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+										<span class="good_number onclick" >[% f.get_column('count_good') %]</span>
+										<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+									</span>
+									<span class="good_list hidden">
+								[% ELSE %]
+									<span class="good_list">
+								[% END %]
+								[% FOREACH i = [1..f.get_column('count_good')] %]<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />[% END %]
+									</span>
+							</p>
+							</div>
+						</div>
+						<div class="user_image_area">
+							<a href="http://bestgameon.net/user/[%- f.twitter_user_to_userid.twitter_user -%]" ><img class="user_icon_middle" src="http://img.tweetimag.es/i/[%- f.twitter_user_to_userid.twitter_user -%]_n" alt="[%- f.twitter_user_to_userid.twitter_user -%]" /></a>
+						</div>
+					</div>
+				[% END %]
+			</div>
+			<div class="page" >
+				<ul>
+					[% IF pager.current_page == pager.first_page %]
+						<li><p class="bigrounde current">&laquo; First</p></li>
+					[% ELSE %]
+						<li><a href="http://bestgameon.net/famousranking" class="button green bigrounde" >&laquo; First</a></li>
+					[% END %]
+			
+					[% FOREACH num = pager.pages_in_navigation %]
+						[% IF num == pager.current_page %]
+							<li><p class="bigrounde current">[% num %]</p></li>
+						[% ELSE %]
+							<li><a href="http://bestgameon.net/famousranking?page=[% num %]" class="button green bigrounde" >[% num %]</a></li>
+						[% END %]
+					[% END %]
+			
+					[% IF pager.current_page == pager.last_page %]
+						<li><p class="bigrounde current">Last &raquo;</p></li>
+					[% ELSE %]
+						<li><a href="http://bestgameon.net/famousranking?page=[% pager.last_page %]" class="button green bigrounde">Last &raquo;</a></li>
+					[% END %]
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>

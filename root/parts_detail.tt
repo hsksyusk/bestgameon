@@ -1,0 +1,43 @@
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<div class="fixwide">
+				<h1 class="generic_contents_title">ブログパーツ</h1>
+				[% IF c.user_exists && rank_exists %]
+				[% ELSE %]
+				<p>[% UNLESS c.user_exists %]ログインして[% END %]ランキングを作ると、ブログパーツを使うことができます。<br/>※現在はサンプルを表示しています。</p>
+				[% END %]
+				<p>ランキングを変更すると、ブログパーツにも変更の内容が反映されます。</p>
+	
+				<div class="blogpartsbox blogpartsm">
+					<h4>TOP3 文字だけ</h4>
+					<script type='text/javascript' src='http://bestgameon.net/bp/[% username %]/m'></script>
+					<textarea class="blogparts_script">[% FILTER html %]<script type='text/javascript' src='http://bestgameon.net/bp/[% username %]/m'></script>[% END %]</textarea>
+				</div>
+			
+				<div class="blogpartsbox blogpartsn">
+					<h4>TOP10 文字だけ</h4>
+					<script type='text/javascript' src='http://bestgameon.net/bp/[% username %]/n'></script>
+					<textarea class="blogparts_script">[% FILTER html %]<script type='text/javascript' src='http://bestgameon.net/bp/[% username %]/n'></script>[% END %]</textarea>
+				</div>
+			
+				<div class="blogpartsbox blogpartsi">
+					<h4>TOP3 画像つき</h4>
+					<script type='text/javascript' src='http://bestgameon.net/bp/[% username %]/i'></script>
+					<textarea class="blogparts_script">[% FILTER html %]<script type='text/javascript' src='http://bestgameon.net/bp/[% username %]/i'></script>[% END %]</textarea>
+				</div>
+			
+				<div class="blogpartsbox blogpartsl">
+					<h4>TOP10 画像つき</h4>
+					<script type='text/javascript' src='http://bestgameon.net/bp/[% username %]/l'></script>
+					<textarea class="blogparts_script">[% FILTER html %]<script type='text/javascript' src='http://bestgameon.net/bp/[% username %]/l'></script>[% END %]</textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+	<br/>
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>

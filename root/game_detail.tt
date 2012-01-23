@@ -1,0 +1,34 @@
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<h1 class="generic_contents_title">[% game.0.title %]</h1>
+			<div class="itembox">
+				<div class="itemcomment">
+					<h4>このゲームの順位とコメント</h4>
+					[% loop_count = 0 %]
+					[% FOREACH item = ranking %]
+						<div class="user_comment_container">
+							<div class="user_comment">
+								<p><a href="http://bestgameon.net/rank/[%- item.twitter_user.twitter_user -%]" >[%- item.twitter_user.twitter_user -%]</a>：[%- item.rank -%]位<br/>[% FILTER truncate(120,'...<a href="http://bestgameon.net/rank/' _ item.twitter_user.twitter_user _ '#rank' _ item.rank _ '">もっと読む</a>') %][%- item.comment -%][%- END %]</p>
+								[% INCLUDE 'good_area.tt' %]
+							</div>
+						</div>
+						<a href="http://bestgameon.net/rank/[%- item.twitter_user.twitter_user -%]" class="user_icon"><img src="http://img.tweetimag.es/i/[%- item.twitter_user.twitter_user -%]_m" alt="[%- item.twitter_user.twitter_user -%]" /></a>
+						[% loop_count = loop_count + 1 %]
+					[% END %]
+				</div>
+			</div>
+			<div class="itemimage">
+				[% IF imageurl == '' %]
+					<a href="[% game.0.url %]" target="_blank" ><img class="itemimage_big" src="http://g-ec2.images-amazon.com/images/G/09/x-site/icons/no-img-sm.gif" alt="[% game.0.title %]" /></a>
+				[% ELSE %]
+					<a href="[% game.0.url %]" target="_blank" ><img class="itemimage_big" src="[% imageurl %]" alt="[% game.0.title %]" /></a>
+				[% END %]
+				<a href="[% game.0.url %]" target="_blank" ><img class="amazon_button" src="[% base %]Bestgame/root/static/images/remote-buy-jp3.gif" alt="Amazonの詳細ページへ" /></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>

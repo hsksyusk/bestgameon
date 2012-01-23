@@ -1,0 +1,50 @@
+[% USE TimeDate %]
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<h1 class="generic_contents_title">新着ゲームランキング</h1>
+			<div class="newranking_body">
+				[% FOREACH history = history %]
+					<div class="ranklist clearfix">
+						<div class="user_name_container">
+							<div class="user_name">
+								<h2><a href="http://bestgameon.net/rank/[%- history.twitter_user.twitter_user -%]" >[%- history.twitter_user.twitter_user -%]さんのゲームランキング</a></h2>
+									<p class="text_right smalltext">[%- TimeDate.parse(history.ranking_create).format('%Y/%m/%d') -%] 作成</p>
+									<p class="text_right smalltext">[%- TimeDate.parse(history.ranking_update).format('%Y/%m/%d') -%] 更新</p>
+							</div>
+						</div>
+						<div class="user_image_area">
+							<a href="http://bestgameon.net/user/[%- history.twitter_user.twitter_user -%]" ><img class="user_icon_middle" src="http://img.tweetimag.es/i/[%- history.twitter_user.twitter_user -%]_n" alt="[%- history.twitter_user.twitter_user -%]" /></a>
+						</div>
+					</div>
+				[% END %]
+			</div>
+			<div class="page" >
+				<ul>
+					[% IF pager.current_page == pager.first_page %]
+						<li><p class="bigrounde current">&laquo; First</p></li>
+					[% ELSE %]
+						<li><a href="http://bestgameon.net/newranking" class="button green bigrounde" >&laquo; First</a></li>
+					[% END %]
+			
+					[% FOREACH num = pager.pages_in_navigation %]
+						[% IF num == pager.current_page %]
+							<li><p class="bigrounde current">[% num %]</p></li>
+						[% ELSE %]
+							<li><a href="http://bestgameon.net/newranking?page=[% num %]" class="button green bigrounde" >[% num %]</a></li>
+						[% END %]
+					[% END %]
+			
+					[% IF pager.current_page == pager.last_page %]
+						<li><p class="bigrounde current">Last &raquo;</p></li>
+					[% ELSE %]
+						<li><a href="http://bestgameon.net/newranking?page=[% pager.last_page %]" class="button green bigrounde">Last &raquo;</a></li>
+					[% END %]
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>

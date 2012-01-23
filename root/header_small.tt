@@ -1,0 +1,14 @@
+<div class="border_red"></div>
+<div class="border_yellow"></div>
+<div id="header_top_wrap">
+	<div id="header_top" class="clearfix">
+		<div id="loginbox">
+			[% INCLUDE 'loginbox.tt' %]
+		</div>
+		<h1 id="site_title"><a href="http://bestgameon.net/"><img src="[% base %]Bestgame/root/static/images/logo_over.png" alt="タイトル画像" /></a></h1>
+		<div id="ads_banner">
+		</div>
+	</div>
+</div>
+<div class="border_green"></div>
+<div class="border_blue"></div>

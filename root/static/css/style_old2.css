@@ -1,0 +1,942 @@
+    body {
+        margin:0;
+        padding:0;
+        border:0;			/* This removes the border around the viewport in old versions of IE */
+        width:100%;
+        background:#c9c9c1;
+        min-width:848px;    /* Minimum width of layout - remove line if not required */
+							/* The min-width property does not work in old versions of Internet Explorer */
+		font-size:90%;
+		color:#494947;
+		background-image: url("http://bestgameon.net/Bestgame/root/static/images/bg_dot.png");
+
+    }
+	form {
+		margin:0px;
+	}
+	a {
+    	color:#10713A;
+		text-decoration:none;
+	}
+	a:hover {
+		text-decoration:underline;
+	}
+	h1, h2, h3 {
+		margin:.8em 0 .2em 0;
+		padding:0;
+		word-wrap: break-word;
+	}
+	h4 {
+		font-weight: normal;
+	}
+    p {
+        margin:0;
+        padding:0;
+		line-height:1.5;
+    }
+	img {
+		border:0;
+/*		margin:10px 0 5px; */
+	}
+
+	li {
+		list-style-type: none;
+	}
+
+	.img_game_small {
+		margin: 5px;
+		-moz-box-shadow: 1px 1px 4px #000;
+		-webkit-box-shadow: 1px 1px 4px #000;
+	}
+	/* Header styles */
+	#header {
+		clear:both;
+		margin: 0 auto;
+		max-width: 1024px;
+	}
+
+	/* #header p, */
+	#header h1,
+	#header h2 {
+	/*    padding:.4em 15px 0 15px; */
+	    padding:0 15px 7px 0;
+	    margin:0;
+	}
+	#site_title {
+	    float:left;
+	}
+	#site_caption {
+	    float:left;
+            padding: 12px 0 0 0;
+	    margin: 0;
+	}
+
+	#loginbox {
+		margin: 0;
+		float: right;
+		text-align:right;
+	}
+
+	#loginbox p {
+		margin: 0;
+	}
+
+	#menu {
+	    clear:left;
+	    float:left;
+	    list-style:none;
+	    margin:0;
+	    padding:0;
+	}
+	#menu li {
+	    display:inline;
+	    list-style:none;
+	    margin:0;
+	    padding:0;
+	}
+	#menu li a {
+	    display:block;
+	    float:left;
+		color:#fff;
+	    margin:0 5px 0 0;
+	    padding:3px 10px;
+	    text-align:center;
+		background: #494947;
+	    text-decoration:none;
+	    position:relative;
+	 /*   left:15px; */
+		line-height:1.3em;
+		border: 3px solid #E0E0D8;
+	}
+	#menu li a:hover {
+	    background:#686863;
+		color:#fff;
+	}
+	#menu li a.active,
+	#menu li a.active:hover {
+	    color:#fff;
+	    background:#000;
+	    font-weight:bold;
+	}
+	#menu li a span {
+	    display:block;
+	}
+
+	#menu li input {
+		margin: 5px 5px 0;
+	}
+	/* column container */
+	.colmask {
+		position:relative;		/* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+	    clear:both;
+	    float:left;
+        width:100%;			/* width of whole page */
+		overflow:hidden;	/* This chops off any overhanging divs */
+	}
+	/* 2 column left menu settings */
+    .leftmenu .colright {
+        float:left;
+        width:200%;
+		position:relative;
+		left:330px;
+    }
+    .leftmenu .col1wrap {
+	    float:right;
+	    width:50%;
+	    position:relative;
+	    right:330px;
+	    padding-bottom:1em;
+	}
+	.leftmenu .col1 {
+        margin: 5px 5px 5px 335px;
+	    position:relative;
+	    right:100%;
+	    overflow:hidden;
+	}
+    .leftmenu .col2 {
+        float:left;
+        width:330px;
+        position:relative;
+        right:330px;
+    }
+	/* Footer styles */
+	#footer {
+        clear:both;
+      /* float:left; */
+        width:90%;
+	/*	border-top:1px solid #000; */
+        margin: 0 auto;
+        max-width: 1024px;
+    }
+    #footer p {
+        padding:10px;
+        margin:0;
+    }
+
+.mainbox_edit {
+    margin: 8px auto;
+}
+
+#search_detail {
+	margin: 0 20px;
+	clear:both;
+}
+
+.itemtitle {
+	clear: both;
+	background-repeat: no-repeat;
+	padding: 20px 0 20px 60px;
+	margin-top:10px;
+}
+.itembox {
+    width: 100%;
+    float: right;
+    margin-left: -250px;
+	margin-bottom: 10px;
+}
+.itemcomment {
+    position: relative;
+    margin: 0 0 0 280px;
+}
+
+.user_comment_container{
+	width: 100%;
+	float: right;
+	margin: 0 0 5px -44px;
+}
+
+.user_comment{
+	position: relative;
+	margin: 0 0 0 34px;
+}
+
+.itemcomment .user_icon {
+	float: left;
+	width: 24px;
+	margin: 0 0 0 10px;
+}
+
+.itemimage{
+    width: 250px;
+    text-align: center;
+    float: left;
+	margin-bottom: 10px;
+}
+
+
+.comment_block {
+	display: none;
+	clear: both;
+}
+.re_search { display: none; }
+.itemlist_frame {
+	background-color:#fff;
+	display: none;
+}
+.itemlist{
+	height: 200px;
+	clear:both;
+}
+
+.loader {
+	display: none;
+	color: #fff;
+	background-color: #686863;
+}
+
+.loader p, .loader img {
+	margin: 0;
+	padding: 10px;
+}
+
+.loader p {
+	float: left;
+}
+
+#itemlist_intro { 
+	display:block;
+	margin: 0 20px;
+	padding: 20px;
+}
+#itemlist_intro h4 {
+	margin: 0;
+}
+
+#itemlist_frame1 { border: 5px solid #f7b500; }
+#itemlist_frame2 { border: 5px solid #39bdff; }
+#itemlist_frame3 { border: 5px solid #f75294; }
+#itemlist_frame4 { border: 5px solid #b5f710; }
+#itemlist_frame5 { border: 5px solid #f773f7; }
+#itemlist_frame6 { border: 5px solid #52f794; }
+#itemlist_frame7 { border: 5px solid #6b84ff; }
+#itemlist_frame8 { border: 5px solid #f77352; }
+#itemlist_frame9 { border: 5px solid #5ade52; }
+#itemlist_frame10{ border: 5px solid #ffa542; }
+
+.searchbox_image {
+	display: none;
+	height: 60px;
+	overflow: hidden;
+	margin-bottom: 5px;
+}
+
+.searchbox_image img{
+    width: 40px;
+	-moz-box-shadow: 1px 1px 4px black;
+	-webkit-box-shadow: 1px 1px 4px black;
+}
+
+/*
+#searchbox1 { background-color:#0073F7; }
+#searchbox2 { background-color:#6B42FF; }
+#searchbox3 { background-color:#DE00CE; }
+#searchbox4 { background-color:#E7005A; }
+#searchbox5 { background-color:#F73100; }
+#searchbox6 { background-color:#E75A10; }
+#searchbox7 { background-color:#AD7B00; }
+#searchbox8 { background-color:#00AD00; }
+#searchbox9 { background-color:#00AD42; }
+#searchbox10{ background-color:#008C8C; }
+*/
+
+.searchbox {
+    padding: 5px 0 0 5px;
+	border-bottom: 1px dashed #a0a09b;
+}
+
+.area_hover {
+	background-color: #e0e0d8;
+}
+.area_select {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/select_allow_bg.png" );
+	background-repeat: no-repeat;
+}
+
+.commentarea {
+	width:315px;
+	font-size:90%;
+}
+
+.searchbox_searcharea {
+    float: none;
+    margin: 0px 5px 5px 0px;
+    width: 275px;
+    text-align: right;
+}
+
+#main_area {
+	max-width: 1024px;
+	min-width: 840px;
+	margin: 5px auto;
+}
+
+#smallwindow {
+	border: 4px groove #efefe8;
+	margin: 20px auto;
+	padding: 20px;
+	width: 400px;
+	background-color: #D8D8D1;
+	clear:both;
+}
+
+#header_small {
+	clear:both;
+	margin: 12px auto 0 auto;
+	width: 400px;
+}
+#header_small h1 {
+    padding:0 15px 0 0;
+    margin:0;
+}
+
+#game_detail_end {
+	clear: both;
+}
+
+.button {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: 5px 10px;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	font-size: 100%;
+}
+.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+
+.button_small {
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: 2px 5px;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	font-size: 90%;
+}
+
+.orange {
+	color: #fef4e9;
+	border: solid 1px #da7c0c;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+	background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+}
+.orange:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+	background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+.orange:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+	background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
+.green {
+	color: #fef4e9;
+	border: solid 1px #08551f;
+	background: #198238;
+	background: -webkit-gradient(linear, left top, left bottom, from(#4cc16f), to(#198238));
+	background: -moz-linear-gradient(top,  #4cc16f,  #198238);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#4cc16f', endColorstr='#198238');
+}
+.green:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#198238), to(#08551f));
+	background: -moz-linear-gradient(top,  #198238,  #08551f);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#198238', endColorstr='#08551f');
+}
+.green:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#198238), to(#4cc16f));
+	background: -moz-linear-gradient(top,  #198238,  #4cc16f);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#198238', endColorstr='#4cc16f');
+}
+
+.yellow {
+	color: #fef4e9;
+	border: solid 1px #88770d;
+	background: #198238;
+	background: -webkit-gradient(linear, left top, left bottom, from(#e8d55b), to(#d1ba28));
+	background: -moz-linear-gradient(top,  #e8d55b,  #d1ba28);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8d55b', endColorstr='#d1ba28');
+}
+.yellow:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#d1ba28), to(#88770d));
+	background: -moz-linear-gradient(top,  #d1ba28,  #88770d);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1ba28', endColorstr='#88770d');
+}
+.yellow:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#d1ba28), to(#e8d55b));
+	background: -moz-linear-gradient(top,  #d1ba28,  #e8d55b);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1ba28', endColorstr='#e8d55b');
+}
+
+.blue {
+	color: #fef4e9;
+	border: solid 1px #0b286b;
+	background: #198238;
+	background: -webkit-gradient(linear, left top, left bottom, from(#547ad2), to(#2149a5));
+	background: -moz-linear-gradient(top,  #547ad2,  #2149a5);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#547ad2', endColorstr='#2149a5');
+}
+.blue:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2149a5), to(#0b286b));
+	background: -moz-linear-gradient(top,  #2149a5,  #0b286b);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#2149a5', endColorstr='#0b286b');
+}
+.blue:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2149a5), to(#547ad2));
+	background: -moz-linear-gradient(top,  #2149a5,  #547ad2);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#2149a5', endColorstr='#547ad2');
+}
+
+.red {
+	color: #fef4e9;
+	border: solid 1px #670a13;
+	background: #198238;
+	background: -webkit-gradient(linear, left top, left bottom, from(#cf515d), to(#9e1e2b));
+	background: -moz-linear-gradient(top,  #cf515d,  #9e1e2b);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cf515d', endColorstr='#9e1e2b');
+}
+.red:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#9e1e2b), to(#670a13));
+	background: -moz-linear-gradient(top,  #9e1e2b,  #670a13);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e1e2b', endColorstr='#670a13');
+}
+.red:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#9e1e2b), to(#cf515d));
+	background: -moz-linear-gradient(top,  #9e1e2b,  #cf515d);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e1e2b', endColorstr='#cf515d');
+}
+
+.gray {
+	color: #fef4e9;
+	border: solid 1px #494947;
+	background: #198238;
+	background: -webkit-gradient(linear, left top, left bottom, from(#d8d8d1), to(#bcbcb5));
+	background: -moz-linear-gradient(top,  #d8d8d1,  #bcbcb5);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#d8d8d1', endColorstr='#bcbcb5');
+}
+.gray:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#bcbcb5), to(#494947));
+	background: -moz-linear-gradient(top,  #bcbcb5,  #494947);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#bcbcb5', endColorstr='#494947');
+}
+.gray:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#bcbcb5), to(#d8d8d1));
+	background: -moz-linear-gradient(top,  #bcbcb5,  #d8d8d1);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#bcbcb5', endColorstr='#d8d8d1');
+}
+
+.bigrounded {
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+}
+
+.searchtext{
+	width: 220px;
+}
+
+.select_top {
+	margin: 3px 5px 3px 140px;
+}
+
+.select_top button{
+	margin: 0 10px 0 0;
+}
+
+.generic_contents_title {
+	padding: 15px;
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/coin03.png");
+	background-repeat: no-repeat;
+	border-left: 10px solid #494947;
+	background-position: 10px 0;
+	color: #494947;
+	margin: 10px;
+}
+
+.toppagebox {
+	float:left;
+	margin: 10px 40px;
+	width: 230px;
+}
+.allranking {
+	clear:both;
+}
+
+.itemcomment h4, .toppagebox h4, .maintenance h4 ,.blogpartsbox h4{
+	background: #686863;
+	padding: 5px 10px;
+	font-size: 100%;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	margin: 0 0 10px;
+	color: white;
+}
+
+.itemtitle h3 {
+	padding: 15px;
+	margin: 0;
+	font-size: 160%;
+}
+
+#rank1 h3 {
+	font-size: 200%;
+}
+
+#rank2 h3 {
+	font-size: 180%;
+}
+
+#rank3 h3 {
+	font-size: 170%;
+}
+
+.sbm_area {
+	float:right;
+	margin: 0;
+}
+
+.sbm {
+	padding: 0;
+	margin: 10px 0 0;
+}
+
+.sbm li {
+	float:left;
+	margin: 0 0 0 10px;
+}
+
+.sbm #facebook {
+	width:45px;
+}
+
+.itemcomment p {
+	padding: 0 10px 0 10px;
+	margin: 0;
+}
+
+.ranking_header, .user_header{
+	margin: 10px 0;
+}
+
+.ranking_header h1, .user_header h1 {
+	float: left;
+	margin: 20px 0;
+	
+}
+
+.ranking_header .user_icon_big, .user_header .user_icon_big {
+	float: left;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+/*	-webkit-box-shadow: 1px 1px 4px black;
+	-moz-box-shadow: 1px 1px 4px black; */
+	margin: 0 0 5px;
+}
+
+
+.itemimage_big {
+	margin: 0 0 10px;
+	-moz-box-shadow: 2px 2px 6px black;
+	-webkit-box-shadow: 2px 2px 6px black;
+}
+
+.ranking_body {
+	clear: both;
+}
+.ranking_item {
+	clear: both;
+	border-top: 1px dashed #686863;
+}
+
+#ranking_item_end {
+	clear: both;
+	border-bottom: 1px dashed #686863;
+}
+
+.user_name h1 a, .itemtitle h3 a {
+	color: #494947;
+	margin-right: 5px;
+ /*	background-color: #E5E5DD; */
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+.page ul {
+	list-style-position: inside;
+	list-style-type    : none;
+	text-align: center;
+	margin             : 5px;
+	padding            : 0;
+}
+
+.page li {
+  display            : inline-block;
+  text-align         : center;
+  text-decoration    : none;
+}
+
+.page:before, .page:after {
+  clear              : both;
+  content            : ".";
+  display            : block;
+  height             : 0;
+  visibility         : hidden;
+}
+
+.page li a, .page li p {
+	color: white;
+	padding            : 3px 5px;
+}
+
+.page .current {
+	display: inline-block;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	font-size: 100%;
+	cursor: default;
+
+	color: #c9c9c1;
+	border: solid 1px #08551f;
+
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#198238), to(#08551f));
+	background: -moz-linear-gradient(top,  #198238,  #08551f);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#198238', endColorstr='#08551f');
+}
+
+.float {
+    float: left;
+    width: 100px;
+    height: 140px;
+    padding: 10px 15px 10px 15px;
+    text-align: center;
+    overflow:hidden;
+}
+
+.float p {
+    text-align: justify;
+    font-size:80%;
+}
+
+.comment_block .toggleval {
+	color: #898984;
+}
+.comment_block textarea.isChanged, .comment_block textarea.hasFocus {
+	color: #000;
+}
+
+.toppagebox .create_date {
+	font-size:60%;
+	float:right;
+}
+.toppagebox .good_count {
+	float:right;
+}
+
+.toppagebox .user_icon {
+	clear: both;
+	float: left;
+	margin: 0 10px 0 0;
+}
+.toppagebox p {
+	line-height:1;
+}
+
+.toppagebox .user_ranking {
+	clear: both;
+	padding: 0 10px;
+	margin: 0 0 10px;
+}
+
+.error_message {
+	color: #9e1e2b;
+}
+
+.good {
+	margin: 5px 0 5px 10px;
+	float:left;
+}
+
+.hidden {
+	display: none;
+}
+
+.good_number {
+	font-weight: 900;
+	color: #05B705;
+	text-decoration: underline;
+}
+
+.good_loading {
+	margin: 0;
+}
+.item_click {
+	color:#C4700A;
+}
+.onclick {
+	cursor: pointer;
+}
+
+.onclick:hover {
+	text-decoration:underline;
+}
+
+.favorite_button_img, .unfavorite_button_img {
+	font-size: 75%;
+	width: 77px;
+	margin: 0 0 5px;
+}
+
+.favorite_error p{
+	text-align: center;
+	color: #9e1e2b;
+}
+
+.favorite_loading{
+	text-align: center;
+	margin: 0 0 5px;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.clearfix {
+  min-height: 1px;
+}
+
+* html .clearfix {
+  height: 1px;
+  /*\*//*
+  height: auto;
+  overflow: hidden;
+  /**/
+}
+
+.maintenance .items {
+	margin-bottom: 10px;
+}
+
+.maintenance label {
+	float: left;
+	width: 130px;
+	text-align: right;
+	line-height: 1.5;
+	color: #333;
+}
+
+.maintenance .param {
+	margin-left: 150px;
+}
+
+.blogpartsbox {
+	float:left;
+	margin: 10px 40px;
+	width: 230px;
+}
+.blogpartsi {
+	clear:both;
+}
+
+.blogparts_script {
+	margin: 5px auto;
+	width:200px;
+}
+
+.ranking_item #rank1 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back1.png");
+}
+.ranking_item #rank2 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back2.png");
+}
+.ranking_item #rank3 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back3.png");
+}
+.ranking_item #rank4 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back4.png");
+}
+.ranking_item #rank5 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back5.png");
+}
+.ranking_item #rank6 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back6.png");
+}
+.ranking_item #rank7 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back7.png");
+}
+.ranking_item #rank8 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back8.png");
+}
+.ranking_item #rank9 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back9.png");
+}
+.ranking_item #rank10 {
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/rank_back10.png");
+}
+
+#container {
+	width: 100%;
+	float: left;
+	margin-right: -180px;
+}
+
+#container #contents_area {
+	position: relative;
+	margin: 0 180px 0 0px;
+	padding: 10px 20px;
+	min-height: 574px;
+}
+#container #contents_area_search {
+	position: relative;
+	margin: 0 180px 0 0px;
+}
+.contents_bordar {
+	border: 4px groove #efefe8;
+	background-color: #D8D8D1;
+}
+
+#sidebar_ads {
+	float:right;
+}
+
+.user_name_container{
+	width: 100%;
+	float: right;
+	margin-left: -80px;
+}
+
+.user_name{
+	margin-left: 80px;
+}
+
+.user_image_area{
+	width: 80px;
+	float: left;
+}
+
+.edit_link {
+	position:absolute;
+}
+
+#wrap {
+	padding: 10px;
+}
+
+#ads_bigbox {
+	clear: both;
+	text-align: center;
+}
+
+.fixwide {
+	width: 620px;
+	margin: 0 auto;
+}

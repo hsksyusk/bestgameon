@@ -1,0 +1,68 @@
+[% USE TimeDate %]
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			[% IF ranking_create && ranking_exists %]
+				<div class="massage_area">
+					<p>あなたのゲームランキングができました！右上の「ツイートする」ボタンで、友だちに知らせましょう！</p>
+				</div>
+			[% END %]
+			<div class="ranking_header clearfix">
+				<div class="user_name_container">
+					<div class="user_name">
+						<h1><a href="http://bestgameon.net/user/[%- username -%]" >[%- username -%]</a>さんのゲームランキング</h1>
+							<p class="text_right smalltext">[%- TimeDate.parse(history.ranking_create).format('%Y/%m/%d') -%] 作成</p>
+							<p class="text_right smalltext">[%- TimeDate.parse(history.ranking_update).format('%Y/%m/%d') -%] 更新</p>
+							[%- IF edit_flag == 1 -%]
+								<p class="text_right smalltext"><a href="http://bestgameon.net/edit">編集</a></p>
+							[% END %]
+					</div>
+				</div>
+				<div class="user_image_area">
+					<a href="http://bestgameon.net/user/[%- username -%]" ><img class="user_icon_big" src="http://img.tweetimag.es/i/[%- username -%]_b" alt="[%- username -%]" /></a>
+					[% INCLUDE 'favorite_area.tt' %]
+				</div>
+			</div>
+			<div class="ranking_body">
+				[% IF ranking_exists %]
+					[% loop_count = 0 %]
+					[% FOREACH item = items %]
+						<div class="ranking_item">
+							<div class="itemtitle" id="rank[% item.rank %]">
+								<h3><a href="http://bestgameon.net/game/[% item.asin %]" >[% item.title %]</a></h3>
+							</div>
+							<div class="itembox">
+								<div class="itemcomment">
+									<h4>コメント</h4>
+									<p>[% FILTER html_line_break -%][% item.comment %][%- END %]</p>
+									[% INCLUDE 'good_area.tt' %]
+									[% INCLUDE 'comment_area.tt' %]
+								</div>
+							</div>
+							<div class="itemimage">
+								<a href="http://bestgameon.net/game/[% item.asin %]" >
+								[% IF item.imageurl == '' %]
+									<img class="itemimage_big" src="http://g-ec2.images-amazon.com/images/G/09/x-site/icons/no-img-sm.gif" alt="[% item.title %]" />
+								[% ELSE %]
+									<img class="itemimage_big" src="[% item.imageurl %]" alt="[% item.title %]" />
+								[% END %]
+								</a>
+								<br/>
+								<a href="[% item.url %]" target="_blank" ><img class="amazon_button" src="[% base %]Bestgame/root/static/images/remote-buy-jp3.gif" alt="Amazonの詳細ページへ" /></a>
+							</div>
+						</div>
+						[% loop_count = loop_count + 1 %]
+					[% END %]
+					<div id="ranking_item_end"></div>
+				[% ELSE %]
+					<p>[%- username -%]さんは、まだランキングを作っていません。</p>
+				[% END %]
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+	<br/>
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>

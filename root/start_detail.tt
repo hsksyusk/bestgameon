@@ -1,0 +1,74 @@
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<div class="fixwide start">
+				<h1 class="generic_contents_title">はじめてのBESTGAMEON</h1>
+				<h3>BESTGAMEONとは？</h3>
+				<p>BESTGAMEONは、あなただけのゲームランキングを作ることができるウェブサービスです。</p>
+				<p>こんなのが作れます。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_ranking.png" />
+				<h3>何ができるの？</h3>
+				<p>できることはたいへん少ないです。</p>
+				<p>・自分のランキング（上の画像参照）を作って、思いの丈をぶちまける。</p>
+				<p>・他の人のランキングをニヤニヤしながら眺める。いい感想があったらGOOD!をつける。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_good.png" />
+				<p>・作ったランキングのブログパーツで、さりげなくアピール。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_blogparts.png" />
+
+				<h1 class="generic_contents_title">ランキングの作り方</h1>
+				<h3>ログインする</h3>
+				<p>ランキングを作るには、まずログインする必要があります。</p>
+				<p>BESTGAMEONには、Twitterアカウントでログインします。画面右上の、</p>
+				<p>[Sign in with twitter]ボタンを押してください。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_login.png" />
+				<p>Twitterの画面に飛びます。</p>
+				<p>BESTGAMEONからTwitterのあなたのアカウントに接続していいか聞いてくるので、</p>
+				<p>よろしければ許可してください。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_login_with_twitter.png" />
+				<p>Twitterでのログインが完了します。</p>
+				<p>続いてメールアドレスの登録ができます。</p>
+				<p>メールアドレスを入力して、登録ボタンを押します。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_email_suggest.png" />
+				<p>登録したメールアドレスに確認メールが送られます。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_email_pre_regist.png" />
+
+				<p>確認メールに書いてあるアドレスにアクセスして、</p>
+				<p>メールの認証を完了します。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_mail_click.png" />
+				<p>以下の画面が表示され、メールアドレスの登録は完了です。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_email_regist.png" />
+				<h3>ランキングを作る。</h3>
+				<p>メニューの[ランキングを作る]を選びます。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_edit_select.png" />
+				<p>ランキングに入るゲームをまとめて検索します。</p>
+				<p>１位から１０位までゲーム名を入れて、一括検索ボタンを押します。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_edit01.png" />
+				<p>検索の結果が右に表示されます。</p>
+				<p>その中から、目的のゲームを選択すると、左側の欄にタイトルと名前が反映します。</p>
+				<p>検索直後は、トップで検索されたゲームが選ばれた状態になります。</p>
+				<p>また、検索後はコメント欄が出てきます。</p>
+				<p>ゲームの感想や思い出などを書いてください。</p>
+				<p>（書かなくてもランキングを作ることはできます）</p>
+				<p>２位以下のゲームについても、それぞれの欄をクリックすると、</p>
+				<p>コメント欄と検索結果が表示されます。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_edit02.png" />
+				<p>すべての順位を選択し、コメントも書き終わったら、</p>
+				<p>登録ボタンを押してください。</p>
+				<p>あなただけのゲームランキングの完成です。</p>
+				<img class="start_img" src="http://bestgameon.net/Bestgame/root/static/images/start_ranking_made.png" />
+				[%- IF c.user_exists -%]
+					<p class="catchcopy"><a href="http://bestgameon.net/edit" class="green button bigrounded">ランキングを作る</a></p>
+				[% ELSE %]
+					<p class="catchcopy"><a href="http://bestgameon.net/twitter_login" onClick="window.open(this.href); return false;" class="blue button bigrounded">Twitterでログインする</a></p>
+				[% END %]
+				<div id="spacer"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+	<br/>
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>
+

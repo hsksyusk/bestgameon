@@ -1,0 +1,28 @@
+<div id="good_[%- loop_count -%]" class="good">
+	[%- IF c.user_exists -%]
+		<span class="good_button onclick">
+			<img src="[% base %]Bestgame/root/static/images/good_button.png" alt="GOOD!ボタン" />
+			<input type="hidden" id="userid" value="[% item.userid %]" />
+			<input type="hidden" id="asin" value="[% item.asin %]" />
+		</span>
+	[%- ELSE -%]
+		<span title="GOOD!するにはログインしてください。"><img src="[% base %]Bestgame/root/static/images/good_button.png" alt="GOOD!ボタン" /></span>
+	[%- END -%]
+
+	[% IF item.to_userid_asin_good.size > 10 %]
+		<span class="good_list_abbr">
+			<a href="http://bestgameon.net/rank/[% item.to_userid_asin_good.first.twitter_user_from_userid.twitter_user %]" ><img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" title="[% item.to_userid_asin_good.first.twitter_user_from_userid.twitter_user %]" /></a>
+			<span class="good_number onclick" >[% item.to_userid_asin_good.size %]</span>
+			<a href="http://bestgameon.net/rank/[% item.to_userid_asin_good.last.twitter_user_from_userid.twitter_user %]" ><img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" title="[% item.to_userid_asin_good.last.twitter_user_from_userid.twitter_user %]" /></a>
+		</span>
+		<span class="good_list hidden">
+	[% ELSE %]
+		<span class="good_list">
+	[% END %]
+		[% FOREACH good = item.to_userid_asin_good %]<a href="http://bestgameon.net/rank/[% good.twitter_user_from_userid.twitter_user %]" ><img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" title="[% good.twitter_user_from_userid.twitter_user %]" /></a>[% END %]
+		</span>
+
+	<span class="good_add_area"></span>
+
+	<img  class="good_loading hidden" src="[% base %]Bestgame/root/static/images/favorite_loading.gif" alt="ロード画像" />
+</div>

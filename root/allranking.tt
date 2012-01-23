@@ -1,0 +1,5 @@
+[% INCLUDE 'head.tt' %]
+[% INCLUDE 'header.tt' %]
+[% INCLUDE 'allranking_detail.tt' %]
+[% INCLUDE 'footer.tt' %]
+[% INCLUDE 'foot.tt' %]

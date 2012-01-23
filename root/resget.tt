@@ -1,0 +1,14 @@
+[% USE TimeDate %]
+[% FOREACH item = get_comments %]
+	<div class="notification_item clearfix">
+		<div class="notification_detail_container">
+			<div class="notification_detail">
+				<p class="notification_date">[%- TimeDate.parse(item.timestamp).format('%Y/%m/%d %H:%M') -%]</p>
+				<p>from: <a href="http://bestgameon.net/user/[% item.username %]" ><span class="bold">[% item.username %]</span>さん</a></p>
+				<p>to: <a href="http://bestgameon.net/rank/[%- username -%]#rank[% item.rank %]">[[% item.rank %]位] [% item.title %]</a></p>
+				<p>[% FILTER truncate(120,'...<a href="http://bestgameon.net/rank/' _ username _ '#rank' _ item.rank _ '">もっと読む</a>') %][%- item.comment -%][%- END %]
+			</div>
+		</div>
+		<a href="http://bestgameon.net/user/[% item.username %]" class="user_icon"><img src="http://img.tweetimag.es/i/[% item.username %]_m" alt="[% item.username %]" /></a>
+	</div>
+[% END %]

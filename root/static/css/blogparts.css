@@ -1,0 +1,75 @@
+.bestgameon_blogparts_wrap { 
+	width: 160px;
+	margin: 0;
+}
+.bestgameon_blogparts_header {
+	padding: 5px 20px 5px 10px;
+	background-color: #898984;
+	background-image: url("http://bestgameon.net/Bestgame/root/static/images/favicon_45.png");
+	background-repeat: no-repeat;
+	background-position: 123px 4px;
+	overflow: visible;
+	word-break: break-all;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+}
+.bestgameon_blogparts_header h1 {
+	font-size: 80%;
+	margin: 0;
+	font-weight: bold;
+	line-height: 120%;
+}
+.bestgameon_blogparts_header h1 a{
+	color: white;
+	text-decoration: none;
+}
+.bestgameon_blogparts_body {
+	border-left: 1px solid #898984;
+	border-right: 1px solid #898984;
+	background-color: #fff;
+}
+.bestgameon_blogparts_body ol{
+	margin: 0;
+	padding: 4px 4px 4px 24px;
+	font-size: 75%;
+	line-height: 110%;
+}
+.bestgameon_blogparts_body ol li{
+	list-style: decimal;
+}
+.bestgameon_blogparts_body a {
+	color: #494947;
+	text-decoration: none;
+}
+.bestgameon_blogparts_image_area {
+	width: 100%;
+	text-align: center;
+	margin: 5px 0;
+	position: relative;
+	right: 10px;
+}
+.bestgameon_blogparts_image_area img{
+	-moz-box-shadow: 1px 1px 4px #000;
+	-webkit-box-shadow: 1px 1px 4px #000;
+}
+.bestgameon_blogparts_footer {
+	background-color: #898984;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+}
+.bestgameon_blogparts_footer p{
+	color: #fff;
+	margin: 0;
+	padding: 5px;
+	font-size: 60%;
+	text-align: right;
+}
+.bestgameon_blogparts_footer p a{
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}

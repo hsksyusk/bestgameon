@@ -1,0 +1,4 @@
+[% INCLUDE 'head.tt' %]
+[% INCLUDE 'header_small.tt' %]
+[% INCLUDE 'email_suggest_detail.tt' %]
+[% INCLUDE 'foot.tt' %]

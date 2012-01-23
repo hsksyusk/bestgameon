@@ -1,0 +1,6 @@
+<html>
+<head><title>[% c.config.name %]</title></head>
+<body>
+<p>[% c.stash.message %]</p>
+</body>
+</html>

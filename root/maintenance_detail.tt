@@ -1,0 +1,167 @@
+[% USE TimeDate %]
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<div class="maintenance fixwide">
+				<h1 class="generic_contents_title">設定</h1>
+
+				<div class="maintenance_area basic_information">
+					<h3>基本設定</h3>
+					<div class="items clearfix">
+						<label>ユーザー名</label>
+						<div class="param">
+							<p>[%- username -%]</p>
+							<form method="get" action="http://bestgameon.net/user_delete">
+								<input name="user_delete" type="hidden" value="1"/>
+								<input type="submit" onclick="return confirm('ユーザー登録を削除すると、あなたの作成したすべての情報が削除されます。また、あなたのランキングについたレスやGOOD!も削除されます。ほんとうにユーザー登録を削除してよろしいですか？')" value="ユーザー登録を削除する" />
+							</form>
+						</div>
+					</div>
+					<div class="items clearfix">
+						<label>メールアドレス</label>
+						<div class="param">
+						[% IF account.email == '' %]
+							<p>メールアドレスが登録されていません。 [<a href="http://bestgameon.net/email_suggest" >登録する</a>]</p>
+						[% ELSE %]
+							<p>[% account.email %] [% IF account.email_auth == '0' %](仮登録中) [% END %][<a href="http://bestgameon.net/email_suggest" >変更する</a>] </p>
+							<form method="post">
+								<input name="email_delete" type="hidden" value="1"/>
+								<input type="submit" value="登録を解除する" />
+							</form>
+						[% END %]
+						</div>
+					</div>
+					<div class="items clearfix">
+						<label>ランキング</label>
+						<div class="param">
+						[% IF ranking_exists %]
+								<p><a href="http://bestgameon.net/rank/[%- username -%]" >[%- username -%]のランキング</a> [<a href="http://bestgameon.net/edit" >編集する</a>]</p>
+								
+								[% IF history.draft_flag %]
+									<p>このランキングは下書き状態です。</p>
+									<form method="post">
+										<input name="edit_draft" type="hidden" value="1"/>
+										<input name="draft" type="hidden" value="0"/>
+										<input type="submit" value="公開する" />									</form>
+								[% ELSE %]
+									<p>このランキングは公開されています。</p>
+									<form method="post">
+										<input name="edit_draft" type="hidden" value="1"/>
+										<input name="draft" type="hidden" value="1"/>
+										<input type="submit" value="下書き状態にする" />
+									</form>
+								[% END %]
+								<form method="post">
+									<input name="ranking_delete" type="hidden" value="1"/>
+									<input type="submit" onclick="return confirm('下書き状態にすることで、ランキングを非表示にできます。ほんとうにランキングを削除してよろしいですか？')" value="ランキングを削除する" />
+								</form>
+						[% ELSE %]
+							<p>まだランキングが作成されていません。 [<a href="http://bestgameon.net/edit" >作成する</a>]</p>
+						[% END %]
+						</div>
+					</div>
+				</div>
+
+				<div class="maintenance_area profile_information">
+					<h3>プロフィール</h3>
+					[% IF error_flag %]
+						[% FOREACH message IN messages %]
+							<p class="error_message">[% message %]</p>
+						[% END %]
+					[% END %]
+					<form method="post">
+						<input name="profile_update" type="hidden" value="1"/>
+						<div class="items clearfix">
+							<label>住所</label>
+							<div class="param">
+								<input name="address" type="text" value="[% profile.address %]"/>
+								[% INCLUDE 'profile_flag.tt' flag = profile.address_flag, name = 'address_flag' %]
+							</div>
+						</div>
+						<div class="items clearfix">
+							<label>性別</label>
+							<div class="param">
+								<select name="sex">
+									<option value="0" [% IF profile.sex == 0 %]selected[% END %]>選択</option>
+									<option value="1" [% IF profile.sex == 1 %]selected[% END %]>女</option>
+									<option value="2" [% IF profile.sex == 2 %]selected[% END %]>男</option>
+								</select>
+								[% INCLUDE 'profile_flag.tt' flag = profile.sex_flag, name = 'sex_flag' %]
+							</div>
+						</div>
+						<div class="items clearfix">
+							<label>血液型</label>
+							<div class="param">
+								<select name="bloodtype">
+									<option value="0" [% IF profile.bloodtype == 0 %]selected[% END %]>選択</option>
+									<option value="1" [% IF profile.bloodtype == 1 %]selected[% END %]>A型</option>
+									<option value="2" [% IF profile.bloodtype == 2 %]selected[% END %]>B型</option>
+									<option value="3" [% IF profile.bloodtype == 3 %]selected[% END %]>O型</option>
+									<option value="4" [% IF profile.bloodtype == 4 %]selected[% END %]>AB型</option>
+								</select>
+								[% INCLUDE 'profile_flag.tt' flag = profile.bloodtype_flag, name = 'bloodtype_flag' %]
+							</div>
+						</div>
+						<div class="items clearfix">
+							<label>生まれた年（西暦）</label>
+							<div class="param">
+								<input class="input_text_short" name="birthyear" type="text" value="[% IF profile.birthyear != 0 %][% profile.birthyear %][% END %]"/>年
+								[% INCLUDE 'profile_flag.tt' flag = profile.birthyear_flag, name = 'birthyear_flag' %]
+							</div>
+						</div>
+						<div class="items clearfix">
+							<label>誕生日</label>
+							<div class="param">
+								<input class="input_text_short" name="birthday_month" type="text" value="[% IF profile.birthday_month != 0 %][%- profile.birthday_month -%][% END %]"/>月
+								<input class="input_text_short" name="birthday_day" type="text" value="[% IF profile.birthday_day != 0 %][%- profile.birthday_day -%][% END %]"/>日
+								[% INCLUDE 'profile_flag.tt' flag = profile.birthday_flag, name = 'birthday_flag' %]
+							</div>
+						</div>
+						<div class="items clearfix">
+							<label>URL</label>
+							<div class="param">
+								<input class="input_text_long" name="url" type="text" value="[% profile.url %]"/>
+								[% INCLUDE 'profile_flag.tt' flag = profile.url_flag, name = 'url_flag' %]
+							</div>
+						</div>
+						<div class="items clearfix">
+							<label>好きなゲームジャンル</label>
+							<div class="param">
+								<input name="favorite_genre" type="text" value="[% profile.favorite_genre %]"/>
+								[% INCLUDE 'profile_flag.tt' flag = profile.favorite_genre_flag, name = 'favorite_genre_flag' %]
+							</div>
+						</div>
+						<div class="items clearfix">
+							<label>好きなゲームハード</label>
+							<div class="param">
+								<input name="favorite_hard" type="text" value="[% profile.favorite_hard %]"/>
+								[% INCLUDE 'profile_flag.tt' flag = profile.favorite_hard_flag, name = 'favorite_hard_flag' %]
+							</div>
+						</div>
+						<div class="items items_end clearfix">
+							<label>好きなゲームメーカー</label>
+							<div class="param">
+								<input name="favorite_maker" type="text" value="[% profile.favorite_maker %]"/>
+								[% INCLUDE 'profile_flag.tt' flag = profile.favorite_maker_flag, name = 'favorite_maker_flag' %]
+							</div>
+						</div>
+						<div class="items clearfix">
+							<label>自己紹介</label>
+							<div class="param">
+								<textarea name="introduction">[% profile.introduction %]</textarea>
+								[% INCLUDE 'profile_flag.tt' flag = profile.introduction_flag, name = 'introduction_flag' %]
+							</div>
+						</div>
+
+						<p class="profile_submit"><input type="submit" value="プロフィール更新" /></p>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>
+

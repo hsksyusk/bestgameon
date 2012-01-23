@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" lang="ja"  xml:lang="ja"> 
+<head>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" /> 
+	<meta name="description" content="あなただけのゲームランキングを作ることができるウェブサービスです。こんなことができます。・自分のランキングを作って、思いの丈をぶちまける。　・他の人のランキングをニヤニヤしながら眺める。いい感想があったらGOOD!をつける。　・作ったランキングのブログパーツで、さりげなくアピール。" />
+	<script type="text/javascript" src="[% base %]Bestgame/root/static/js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="[% base %]Bestgame/root/static/js/jquery-ui-1.8.11.custom.min.js"></script>
+	<script src="[% base %]Bestgame/root/static/js/jquery.toggleval.js"></script>
+	<script src="[% base %]Bestgame/root/static/js/jqModal.js"></script>
+	<script type="text/javascript" src="[% base %]Bestgame/root/static/js/topsy.js"></script>
+	<script type="text/javascript" src="[% base %]Bestgame/root/static/js/searchgames_test.js"></script>
+
+	<link rel="stylesheet" href="[% base %]Bestgame/root/static/css/style.css" type="text/css" />
+	<link rel="stylesheet" href="[% base %]Bestgame/root/static/css/jqModal.css" type="text/css" />
+	<link rel="shortcut icon" href="[% base %]Bestgame/root/static/images/favicon.ico">
+	<!--[if lt IE 7]>
+	<link rel="stylesheet" href="[% base %]Bestgame/root/static/css/ie7.css" type="text/css" />
+	<![endif]--> 
+<script type="text/javascript">
+<!--
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-377914-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+-->
+</script>
+<title>[% pagetitle %]</title>
+
+</head>
+<body>

@@ -1,0 +1,19 @@
+</div>
+<div id="footer"> 
+	<p><a href="[% base %]about">About</a>
+	 | <a href="[% base %]start">はじめてのBESTGAMEON</a>
+	 | <a href="[% base %]blog">お知らせ</a>
+	 | <a href="[% base %]rules">利用規約</a>
+	 | <a href="[% base %]privacypolicy">プライバシーポリシー</a>
+	 | <a href="[% base %]contact">お問い合わせ</a>
+	 | <a href="[% base %]advertise">広告掲載</a>
+	<br/> <a href="[% base %]newranking">新着ランキング</a>
+	 | <a href="[% base %]famousranking">人気のランキング</a>
+	 | <a href="[% base %]allranking">総合ランキング</a>
+	 | <a href="[% base %]goodgame">GOOD!の多いゲーム</a>
+	<br/> Copyright (C) 2011, bestgameon.net All Rights Reserved.
+	</p> 
+</div>
+<div id="ads_bigbox">
+	[% INCLUDE 'ads_bigbox.tt' %]
+</div>

@@ -1,0 +1,6 @@
+AddHandler cgi-script .pl
+
+RewriteEngine On
+RewriteBase /Bestgame
+RewriteCond %{REQUEST_URI} !^/(?Bestgame/script/Bestgame/bestgame_cgi.pl|root/static)
+RewriteRule ^(.*)$ Bestgame/script/bestgame_cgi.pl/$1 [PT,L]

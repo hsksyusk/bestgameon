@@ -1,0 +1,34 @@
+[% USE TimeDate %]
+<div id="comment_[%- loop_count -%]" class="comment">
+	[% IF item.to_userid_asin_comment.size > 0 %]
+		<p class="res_title"><span class="comment_view onclick" >レスを表示する([% item.to_userid_asin_comment.size %]件)<img src="[% base %]Bestgame/root/static/images/arrow_down.png" /></span></p>
+	<span class="comment_list hidden">
+		<p class="res_title">レス</p>
+		[% FOREACH comment = item.to_userid_asin_comment %]
+			<div class="comment_item clearfix ">
+				<div class="user_comment_container">
+					<div class="user_comment">
+						<p><a href="http://bestgameon.net/rank/[%- comment.twitter_user_from_userid.twitter_user -%]" >[%- comment.twitter_user_from_userid.twitter_user -%]</a>：<span class="smalltext">[%- TimeDate.parse(comment.timestamp).format('%Y/%m/%d %H:%M') -%]</span><br/>[% FILTER html_line_break -%][%- comment.comment -%][% END %]</p>
+					</div>
+				</div>
+				<a href="http://bestgameon.net/rank/[%- comment.twitter_user_from_userid.twitter_user -%]" class="user_icon"><img src="http://img.tweetimag.es/i/[%- comment.twitter_user_from_userid.twitter_user -%]_m" alt="[%- comment.twitter_user_from_userid.twitter_user -%]" /></a>
+			</div>
+		[% END %]
+	</span>
+	[% ELSE %]
+	<p class="res_title">レス</p>
+	[% END %]
+
+	<div class="comment_add_area clearfix"></div>
+	<p class="comment_error error_message"></p>
+
+	[%- IF c.user_exists -%]
+		<input type="hidden" id="userid" value="[% item.userid %]" />
+		<input type="hidden" id="asin" value="[% item.asin %]" />
+		<textarea id="comment"></textarea>
+		<button class="comment_button" >レスする</button>
+	[%- ELSE -%]
+		<p>レスするにはログインしてください。</p>
+	[%- END -%]
+	<img  class="comment_loading hidden" src="[% base %]Bestgame/root/static/images/favorite_loading.gif" alt="ロード画像" />
+</div>

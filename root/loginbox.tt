@@ -1,0 +1,7 @@
+[%- IF c.user_exists -%]
+	<p>[%- c.user.get('twitter_user') | html -%]でログイン中</p>
+	<a href="[% base %]logout">ログアウトする</a>
+[%- ELSE -%]
+	<p>ログインしていません</p>
+	<a href="[% base %]twitter_login" onClick="window.open(this.href); return false;" ><img src="[% base %]Bestgame/root/static/images/Sign_in_with_Twitter.png" alt="Twitterでログインする" /></a>
+[%- END -%]

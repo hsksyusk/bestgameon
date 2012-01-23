@@ -1,0 +1,12 @@
+BESTGAMEONへ問い合わせがありました。
+
+お名前：[% username %]
+メールアドレス：[% email %]
+Twitter ID：[% twitter_id %]
+内容：
+[% comment %]
+
+--
+Bestgameon開発チーム
+http://bestgameon.net
+

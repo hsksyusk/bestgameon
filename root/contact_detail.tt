@@ -1,0 +1,47 @@
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<div class="fixwide contact">
+				<h1 class="generic_contents_title">ご質問・お問い合わせ</h1>
+				<p>各種お問い合わせは、下記フォームより承ります。</p>
+				<p>ご質問、ご要望などございましたら、お気軽にお問い合わせ下さい。</p>
+				[% IF error_flag %]
+					[% FOREACH message IN messages %]
+						<p class="error_message">[% message %]</p>
+					[% END %]
+				[% END %]
+				<div id="stylized" class="myform">
+					<form id="contact_form" name="form" method="post" >
+					<label>お名前*
+					<span class="small">必須、ハンドル名可</span>
+					</label>
+					<input type="text" name="name" id="name" value="[% username %]" />
+					
+					<label>Email
+					<span class="small">返信が必要な場合は、必ず記載してください</span>
+					</label>
+					<input type="text" name="email" id="email" value="[% email %]" />
+					
+					<label>Twitter ID
+					<span class="small">任意</span>
+					</label>
+					<input type="text" name="twitter_id" id="twitter_id" value="[% twitter_id %]" />
+					
+					<label>内容*
+					<span class="small">必須</span>
+					</label>
+					<textarea name="comment">[% comment %]</textarea>
+					<p><button type="submit">送信</button></p>
+					<div class="spacer"></div>
+					</form>
+				</div>
+				<p>Twitterアカウント <a href="http://twitter.com/hsksyusk" target="_blank">@hsksyusk</a> へのリプライ、DMでのご連絡も承ります。</p>
+				<p>ただし、見落とすことがあるかもしれません。</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>
+

@@ -1,0 +1,88 @@
+regist:
+  rank1:
+    - NOT_BLANK
+  rank2:
+    - NOT_BLANK
+  rank3:
+    - NOT_BLANK
+  rank4:
+    - NOT_BLANK
+  rank5:
+    - NOT_BLANK
+  rank6:
+    - NOT_BLANK
+  rank7:
+    - NOT_BLANK
+  rank8:
+    - NOT_BLANK
+  rank9:
+    - NOT_BLANK
+  rank10:
+    - NOT_BLANK
+  comment1:
+    - ['LENGTH', 0, 21500]
+  comment2:
+    - ['LENGTH', 0, 21500]
+  comment3:
+    - ['LENGTH', 0, 21500]
+  comment4:
+    - ['LENGTH', 0, 21500]
+  comment5:
+    - ['LENGTH', 0, 21500]
+  comment6:
+    - ['LENGTH', 0, 21500]
+  comment7:
+    - ['LENGTH', 0, 21500]
+  comment8:
+    - ['LENGTH', 0, 21500]
+  comment9:
+    - ['LENGTH', 0, 21500]
+  comment10:
+    - ['LENGTH', 0, 21500]
+amazon:
+  keyword:
+    - NOT_BLANK
+search:
+  keyword:
+    - NOT_BLANK
+email_suggest:
+  mailaddress:
+    - NOT_BLANK
+    - EMAIL_LOOSE
+email_regist:
+  mailaddress:
+    - NOT_BLANK
+    - EMAIL_LOOSE
+good:
+  to_userid:
+    - NOT_BLANK
+  asin:
+    - NOT_BLANK
+favorite:
+  to_userid:
+    - NOT_BLANK
+contact:
+  name:
+    - NOT_BLANK
+  email:
+    - EMAIL_LOOSE
+  comment:
+    - NOT_BLANK
+comment:
+  to_userid:
+    - NOT_BLANK
+  asin:
+    - NOT_BLANK
+  comment:
+    - NOT_BLANK
+maintenance:
+  birthyear:
+    - UINT
+  birthday_month:
+    - UINT
+    - ['BETWEEN',  1, 12]
+  birthday_day:
+    - UINT
+    - ['BETWEEN',  1, 31]
+  url:
+    - HTTP_URL

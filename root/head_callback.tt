@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" lang="ja"  xml:lang="ja"> 
+<head>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" /> 
+	<meta name="description" content="あなただけのゲームランキングを作ることができるウェブサービスです。こんなことができます。・自分のランキングを作って、思いの丈をぶちまける。　・他の人のランキングをニヤニヤしながら眺める。いい感想があったらGOOD!をつける。　・作ったランキングのブログパーツで、さりげなくアピール。" />
+	<script type="text/javascript" src="[% base %]Bestgame/root/static/js/jquery-1.4.2.min.js"></script>
+	<link rel="stylesheet" href="[% base %]Bestgame/root/static/css/style.css" type="text/css" />
+	<link rel="shortcut icon" href="[% base %]Bestgame/root/static/images/favicon.ico">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			if(window.opener && !window.opener.closed){
+				window.opener.location.reload();
+				window.close();
+			}
+		});
+	</script>
+<title>[% pagetitle %]</title>
+</head>
+<body>

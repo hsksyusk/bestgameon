@@ -1,0 +1,4 @@
+<select class="profile_flag" name="[% name %]">
+	<option value="0" [% IF flag == 0 %]selected[% END %]>非公開</option>
+	<option value="1" [% IF flag == 1 %]selected[% END %]>公開</option>
+</select>

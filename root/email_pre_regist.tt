@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" lang="ja"  xml:lang="ja"> 
+<head>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" /> 
+	<script type="text/javascript" src="[% base %]Bestgame/root/static/js/jquery-1.4.2.min.js"></script>
+	<link rel="stylesheet" href="[% base %]Bestgame/root/static/css/style.css" type="text/css" />
+	<link rel="shortcut icon" href="[% base %]Bestgame/root/static/images/favicon.ico">
+
+<title>[% pagetitle %]</title>
+</head>
+<body>
+<div class="border_red"></div>
+<div class="border_yellow"></div>
+<div id="header_top_wrap">
+	<div id="header_top" class="clearfix">
+		<div id="loginbox">
+			[% INCLUDE 'loginbox.tt' %]
+		</div>
+		<h1 id="site_title"><a href="http://bestgameon.net/"><img src="[% base %]Bestgame/root/static/images/logo_over.png" alt="タイトル画像" /></a></h1>
+		<div id="ads_banner">
+		</div>
+	</div>
+</div>
+<div class="border_green"></div>
+<div class="border_blue"></div>
+</div>
+<div id="smallwindow">
+	<p>確認メールを送信しました。</p>
+	<p>お送りしたメールから、登録手続きを完了してください。</p>
+</div>
+</body> 
+</html>

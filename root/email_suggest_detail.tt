@@ -1,0 +1,15 @@
+<div id="smallwindow">
+	<h1 class="generic_contents_title">メールアドレスの登録</h1>
+	<p>メールアドレスをご登録いただくと、BESTGAMEONからのお知らせを受け取ることができます。</p>
+	<form method="post">
+		<input name="mailaddress" type="text" value=""/>
+		<input class="button red bigrounded" type="submit" value="登録" />
+	</form>
+	[% IF error_flag %]
+		[% FOREACH message IN messages1 %]
+			<p class="error_message">[% message %]</p>
+		[% END %]
+		[% IF error_flag == 2 %]<p class="error_message">[% messages2 %]</p>[% END %]
+	[% END %]
+	
+</div>

@@ -1,0 +1,423 @@
+[% USE dumper %]
+[% INCLUDE 'head.tt' %]
+<style type="text/css">
+<!--
+.pageadd_button{
+	text-align: center;
+	background-color: #E2EDE8;
+	border: 1px solid #A8EDBC;
+	color: #198238;
+}
+.pageadd_button:hover{
+	background-color: #d6e5e0;
+}
+.pageadd_loading_image{
+	margin: 3px;
+}
+
+-->
+</style>
+
+<script type="text/javascript">
+<!--
+$(function(){
+	$("#goodget_add_button").click(function(){
+		goodget_add( $('#userid').attr('value'), Number($('#goodget_page').attr('value')) , Number($('#goodget_count').attr('value')) , "goodget_page");
+	})
+	$("#goodgive_add_button").click(function(){
+		goodgive_add( $('#userid').attr('value'), Number($('#goodgive_page').attr('value')) , Number($('#goodgive_count').attr('value')) , "goodgive_page");
+	})
+	$("#resget_add_button").click(function(){
+		resget_add( $('#userid').attr('value'), Number($('#resget_page').attr('value')) , Number($('#resget_count').attr('value')) , "resget_page");
+	})
+	$("#resgive_add_button").click(function(){
+		resgive_add( $('#userid').attr('value'), Number($('#resgive_page').attr('value')) , Number($('#resgive_count').attr('value')) , "resgive_page");
+	})
+})
+
+function goodget_add( userid, page, max_count, page_target ) {
+
+	var htmldata;
+
+	$("#goodget_add_button").hide();
+	$("#goodget_loading").show();
+
+	$.ajax({
+		dataType: "text",
+		type: "GET",
+		url:"http://bestgameon.net/goodget/"+userid+"/"+page+"/2",
+		timeout: 300000,
+		success: function (data) { 
+			htmldata = data;
+		},
+		error: function (data,status,errorThrown){
+			htmldata = data;
+		},
+		complete: function (XMLHttpRequest, textStatus){
+			$("#goodget_add_area").html( $("#goodget_add_area").html()+htmldata );
+			$("#goodget_loading").hide();
+			if( page+1 < max_count / 5 ) {
+				$('#'+page_target).attr('value', page+2);
+				$("#goodget_add_button").show();
+			}
+		},
+	});
+}
+
+function goodgive_add( userid, page, max_count, page_targive ) {
+
+	var htmldata;
+
+	$("#goodgive_add_button").hide();
+	$("#goodgive_loading").show();
+
+	$.ajax({
+		dataType: "text",
+		type: "give",
+		url:"http://bestgameon.net/goodgive/"+userid+"/"+page+"/2",
+		timeout: 300000,
+		success: function (data) { 
+			htmldata = data;
+		},
+		error: function (data,status,errorThrown){
+			htmldata = data;
+		},
+		complete: function (XMLHttpRequest, textStatus){
+			$("#goodgive_add_area").html( $("#goodgive_add_area").html()+htmldata );
+			$("#goodgive_loading").hide();
+			if( page+1 < max_count / 5 ) {
+				$('#'+page_targive).attr('value', page+2);
+				$("#goodgive_add_button").show();
+			}
+		},
+	});
+}
+
+function resget_add( userid, page, max_count, page_target ) {
+
+	var htmldata;
+
+	$("#resget_add_button").hide();
+	$("#resget_loading").show();
+
+	$.ajax({
+		dataType: "text",
+		type: "GET",
+		url:"http://bestgameon.net/resget/"+userid+"/"+page+"/2",
+		timeout: 300000,
+		success: function (data) { 
+			htmldata = data;
+		},
+		error: function (data,status,errorThrown){
+			htmldata = data;
+		},
+		complete: function (XMLHttpRequest, textStatus){
+			$("#resget_add_area").html( $("#resget_add_area").html()+htmldata );
+			$("#resget_loading").hide();
+			if( page+1 < max_count / 5 ) {
+				$('#'+page_target).attr('value', page+2);
+				$("#resget_add_button").show();
+			}
+		},
+	});
+}
+
+function resgive_add( userid, page, max_count, page_targive ) {
+
+	var htmldata;
+
+	$("#resgive_add_button").hide();
+	$("#resgive_loading").show();
+
+	$.ajax({
+		dataType: "text",
+		type: "give",
+		url:"http://bestgameon.net/resgive/"+userid+"/"+page+"/2",
+		timeout: 300000,
+		success: function (data) { 
+			htmldata = data;
+		},
+		error: function (data,status,errorThrown){
+			htmldata = data;
+		},
+		complete: function (XMLHttpRequest, textStatus){
+			$("#resgive_add_area").html( $("#resgive_add_area").html()+htmldata );
+			$("#resgive_loading").hide();
+			if( page+1 < max_count / 5 ) {
+				$('#'+page_targive).attr('value', page+2);
+				$("#resgive_add_button").show();
+			}
+		},
+	});
+}
+
+-->
+</script>
+
+[% INCLUDE 'header.tt' %]
+[% USE TimeDate %]
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<div class="fixwide">
+				<div class="user_profile clearfix">
+					<h1 class="generic_contents_title">[%- username -%]</h1>
+					<input type="hidden" id="userid" value="[% userid %]" />
+
+					<div class="notification_title clearfix">
+						<h3>プロフィール</h3>
+					</div>
+					<div class="user_profile_detail">
+						[% IF profile.introduction_flag && profile.introduction != "" %]
+							<div class="items clearfix">
+								<label>自己紹介</label>
+								<div class="param">
+									<p>[% FILTER html_line_break -%][% profile.introduction %][% END %]</p>
+								</div>
+							</div>
+						[% END %]
+						[% IF profile.address_flag && profile.address != "" %]
+							<div class="items clearfix">
+								<label>住所</label>
+								<div class="param">
+									<p>[% profile.address %]</p>
+								</div>
+							</div>
+						[% END %]
+						[% IF profile.sex_flag && profile.sex != 0 %]
+							<div class="items clearfix">
+								<label>性別</label>
+								<div class="param">
+									<p>
+										[% IF profile.sex == 1 %]女
+										[% ELSIF profile.sex == 2 %]男
+										[% END %]
+									</p>
+								</div>
+							</div>
+						[% END %]
+						[% IF profile.bloodtype_flag && profile.bloodtype != 0 %]
+							<div class="items clearfix">
+								<label>血液型</label>
+								<div class="param">
+									<p>
+										[% IF profile.bloodtype == 1 %]A型
+										[% ELSIF profile.bloodtype == 2 %]B型
+										[% ELSIF profile.bloodtype == 3 %]O型
+										[% ELSIF profile.bloodtype == 4 %]AB型
+										[% END %]
+									</p>
+								</div>
+							</div>
+						[% END %]
+						[% IF profile.birthyear_flag && profile.birthyear != 0 %]
+							<div class="items clearfix">
+								<label>生まれた年</label>
+								<div class="param">
+									<p>[% profile.birthyear %]年</p>
+								</div>
+							</div>
+						[% END %]
+						[% IF profile.birthday_flag && profile.birthday_month != 0 && profile.birthday_day != 0 %]
+							<div class="items clearfix">
+								<label>誕生日</label>
+								<div class="param">
+									<p>[% profile.birthday_month %]月[% profile.birthday_day %]日</p>
+								</div>
+							</div>
+						[% END %]
+						[% IF profile.url_flag && profile.url != "" %]
+							<div class="items clearfix">
+								<label>URL</label>
+								<div class="param">
+									<p><a href="[% profile.url %]" target="_blank" >[% profile.url %]</a></p>
+								</div>
+							</div>
+						[% END %]
+						[% IF profile.favorite_genre_flag && profile.favorite_genre != "" %]
+							<div class="items clearfix">
+								<label>好きなゲームジャンル</label>
+								<div class="param">
+									<p>[% profile.favorite_genre %]</p>
+								</div>
+							</div>
+						[% END %]
+						[% IF profile.favorite_hard_flag && profile.favorite_hard != "" %]
+							<div class="items clearfix">
+								<label>好きなゲームハード</label>
+								<div class="param">
+									<p>[% profile.favorite_hard %]</p>
+								</div>
+							</div>
+						[% END %]
+						[% IF profile.favorite_maker_flag && profile.favorite_maker != "" %]
+							<div class="items clearfix">
+								<label>好きなゲームメーカー</label>
+								<div class="param">
+									<p>[% profile.favorite_maker %]</p>
+								</div>
+							</div>
+						[% END %]
+
+					</div>
+					<div class="user_image_area float_left">
+						<a href="http://twitter.com/#!/[%- username -%]" target="_blank" ><img class="user_icon_original" src="http://img.tweetimag.es/i/[%- username -%]_o" alt="[%- username -%]"></a>
+						[% INCLUDE 'favorite_area.tt' %]
+						<a href="http://twitter.com/[%- username -%]" target="_blank" ><img src="http://twitter-badges.s3.amazonaws.com/t_logo-a.png" class="twitter_button" alt="[%- username -%]" /></a>
+					</div>
+				</div>
+
+				<div class="my_ranking_area user_notification clearfix">
+					<div class="notification_title clearfix">
+						<h3>つくったランキング</h3>
+					</div>
+						<div class="notification_item clearfix">
+							[% IF history.draft_flag %]
+								<p>まだランキングを作っていません。</p>
+							[% ELSE %]
+								<p class="ranktitle float_left"><a href="http://bestgameon.net/rank/[%- username -%]">[%- username -%]さんのベストゲームランキング</a></p>
+								<p class="text_right smalltext">[%- TimeDate.parse(history.ranking_create).format('%Y/%m/%d') -%] 作成</p>
+								<p class="text_right smalltext">[%- TimeDate.parse(history.ranking_update).format('%Y/%m/%d') -%] 更新</p>
+								[%- IF edit_flag == 1 -%]<p class="text_right smalltext"><a href="http://bestgameon.net/edit">編集</a></p>[% END %]
+							[% END %]
+						</div>
+				</div>
+
+				<div class="get_good_area user_notification">
+					<div class="notification_title clearfix">
+						<h3>もらったGOOD!</h3>
+						<a href="http://bestgameon.net/goodget_rss/[%- username -%]" class="rss_icon" target="_blank" ><img src="http://bestgameon.net/Bestgame/root/static/images/rss_icon.png" alt="RSS" ></a>
+						<p class="bold">合計 <img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />×[% get_good_count %]</p>
+					</div>
+					[% FOREACH item = get_goods %]
+						<div class="notification_item clearfix">
+							<div class="notification_detail_container">
+								<div class="notification_detail">
+									<p class="notification_date">[%- TimeDate.parse(item.timestamp).format('%Y/%m/%d %H:%M') -%]</p>
+									<p>from: <a href="http://bestgameon.net/user/[% item.username %]" ><span class="bold">[% item.username %]</span>さん</a></p>
+									<p>to: <a href="http://bestgameon.net/rank/[%- username -%]#rank[% item.rank %]">[[% item.rank %]位] [% item.title %]</a></p>
+								</div>
+							</div>
+							<a href="http://bestgameon.net/user/[% item.username %]" class="user_icon"><img src="http://img.tweetimag.es/i/[% item.username %]_m" alt="[% item.username %]" /></a>
+						</div>
+					[% END %]
+					<div id="goodget_add_area"></div>
+					<p id="goodget_add_button" class="pageadd_button onclick[% IF get_good_count <= 5 %] hidden[% END %]">もっと見る</p>
+					<div id="goodget_loading" class="pageadd_button hidden"><img src="http://bestgameon.net/Bestgame/root/static/images/favorite_loading.gif" class="pageadd_loading_image" alt="ロード画像"></div>
+					<input type="hidden" id="goodget_page" value="2" />
+					<input type="hidden" id="goodget_count" value="[% get_good_count %]" />
+				</div>
+			
+				<div class="give_good_area user_notification">
+					<div class="notification_title clearfix">
+						<h3>つけたGOOD!</h3>
+						<a href="http://bestgameon.net/goodgive_rss/[%- username -%]" class="rss_icon" target="_blank" ><img src="http://bestgameon.net/Bestgame/root/static/images/rss_icon.png" alt="RSS" ></a>
+						<p class="bold">合計 <img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />×[% give_good_count %]</p>
+					</div>
+					[% FOREACH item = give_goods %]
+						<div class="notification_item clearfix">
+							<div class="notification_detail_container">
+								<div class="notification_detail">
+									<p class="notification_date">[%- TimeDate.parse(item.timestamp).format('%Y/%m/%d %H:%M') -%]</p>
+									<p>to: <a href="http://bestgameon.net/user/[% item.username %]" ><span class="bold">[% item.username %]</span>さん</a></p>
+									<p><a href="http://bestgameon.net/rank/[%- username -%]#rank[% item.rank %]">[[% item.rank %]位] [% item.title %]</a></p>
+								</div>
+							</div>
+							<a href="http://bestgameon.net/user/[% item.username %]" class="user_icon"><img src="http://img.tweetimag.es/i/[% item.username %]_m" alt="[% item.username %]" /></a>
+						</div>
+					[% END %]
+					<div id="goodgive_add_area"></div>
+					<p id="goodgive_add_button" class="pageadd_button onclick[% IF give_good_count <= 5 %] hidden[% END %]">もっと見る</p>
+					<div id="goodgive_loading" class="pageadd_button hidden"><img src="http://bestgameon.net/Bestgame/root/static/images/favorite_loading.gif" class="pageadd_loading_image" alt="ロード画像"></div>
+					<input type="hidden" id="goodgive_page" value="2" />
+					<input type="hidden" id="goodgive_count" value="[% give_good_count %]" />
+				</div>
+			
+				<div class="get_comment_area user_notification">
+					<div class="notification_title clearfix">
+						<h3>もらったレス</h3>
+						<a href="http://bestgameon.net/resget_rss/[%- username -%]" class="rss_icon" target="_blank" ><img src="http://bestgameon.net/Bestgame/root/static/images/rss_icon.png" alt="RSS" ></a>
+						<p class="bold">[% get_comment_count %]件</p>
+					</div>
+					[% FOREACH item = get_comments %]
+						<div class="notification_item clearfix">
+							<div class="notification_detail_container">
+								<div class="notification_detail">
+									<p class="notification_date">[%- TimeDate.parse(item.timestamp).format('%Y/%m/%d %H:%M') -%]</p>
+									<p>from: <a href="http://bestgameon.net/user/[% item.username %]" ><span class="bold">[% item.username %]</span>さん</a></p>
+									<p>to: <a href="http://bestgameon.net/rank/[%- username -%]#rank[% item.rank %]">[[% item.rank %]位] [% item.title %]</a></p>
+									<p>[% FILTER truncate(120,'...<a href="http://bestgameon.net/rank/' _ username _ '#rank' _ item.rank _ '">もっと読む</a>') %][%- item.comment -%][%- END %]
+								</div>
+							</div>
+							<a href="http://bestgameon.net/user/[% item.username %]" class="user_icon"><img src="http://img.tweetimag.es/i/[% item.username %]_m" alt="[% item.username %]" /></a>
+						</div>
+					[% END %]
+					<div id="resget_add_area"></div>
+					<p id="resget_add_button" class="pageadd_button onclick [% IF get_comment_count <= 5 %] hidden[% END %]">もっと見る</p>
+					<div id="resget_loading" class="pageadd_button hidden"><img src="http://bestgameon.net/Bestgame/root/static/images/favorite_loading.gif" class="pageadd_loading_image" alt="ロード画像"></div>
+					<input type="hidden" id="resget_page" value="2" />
+					<input type="hidden" id="resget_count" value="[% get_comment_count %]" />
+				</div>
+			
+				<div class="give_comment_area user_notification">
+					<div class="notification_title clearfix">
+						<h3>つけたレス</h3>
+						<a href="http://bestgameon.net/resgive_rss/[%- username -%]" class="rss_icon" target="_blank" ><img src="http://bestgameon.net/Bestgame/root/static/images/rss_icon.png" alt="RSS" ></a>
+						<p class="bold">[% give_comment_count %]件</p>
+					</div>
+					[% FOREACH item = give_comments %]
+						<div class="notification_item clearfix">
+							<div class="notification_detail_container">
+								<div class="notification_detail">
+									<p class="notification_date">[%- TimeDate.parse(item.timestamp).format('%Y/%m/%d %H:%M') -%]</p>
+									<p>to: <a href="http://bestgameon.net/user/[% item.username %]" ><span class="bold">[% item.username %]</span>さん</a> <a href="http://bestgameon.net/rank/[%- item.username -%]#rank[% item.rank %]">[[% item.rank %]位] [% item.title %]</a></p>
+									<p>[% FILTER truncate(120,'...<a href="http://bestgameon.net/rank/' _ item.username _ '#rank' _ item.rank _ '">もっと読む</a>') %][%- item.comment -%][%- END %]
+								</div>
+							</div>
+							<a href="http://bestgameon.net/user/[% item.username %]" class="user_icon"><img src="http://img.tweetimag.es/i/[% item.username %]_m" alt="[% item.username %]" /></a>
+						</div>
+					[% END %]
+					<div id="resgive_add_area"></div>
+					<p id="resgive_add_button" class="pageadd_button onclick[% IF give_comment_count <= 5 %] hidden[% END %]">もっと見る</p>
+					<div id="resgive_loading" class="pageadd_button hidden"><img src="http://bestgameon.net/Bestgame/root/static/images/favorite_loading.gif" class="pageadd_loading_image" alt="ロード画像"></div>
+					<input type="hidden" id="resgive_page" value="2" />
+					<input type="hidden" id="resgive_count" value="[% give_comment_count %]" />
+				</div>
+			
+				<div class="my_favorite_area user_notification">
+					<div class="notification_title clearfix">
+						<h3>お気に入りユーザー</h3>
+						<p class="bold">[% my_favorite_count %]人</p>
+					</div>
+					<div class="my_favorite_detail clearfix">
+					[% FOREACH my_favorite = my_favorites %]
+						<a href="http://bestgameon.net/user/[%- my_favorite.twitter_user_to_userid.twitter_user -%]" >
+							<img src="http://img.tweetimag.es/i/[%- my_favorite.twitter_user_to_userid.twitter_user -%]_n" alt="[%- my_favorite.twitter_user_to_userid.twitter_user -%]さんのユーザーアイコン" title="[% my_favorite.twitter_user_to_userid.twitter_user %]" class="user_icon_middle" />
+						</a>
+					[% END %]
+					</div>
+				</div>
+			
+				<div class="get_favorite_area user_notification">
+					<div class="notification_title clearfix">
+						<h3>[%- username -%]さんをお気に入り登録しているユーザー</h3>
+						<p class="bold">[% get_favorite_count %]人</p>
+					</div>
+					<div class="get_favorite_detail clearfix">
+					[% FOREACH get_favorite = get_favorites %]
+						<a href="http://bestgameon.net/user/[% get_favorite.twitter_user_from_userid.twitter_user %]" >
+							<img src="http://img.tweetimag.es/i/[%- get_favorite.twitter_user_from_userid.twitter_user -%]_n" alt="[%- get_favorite.twitter_user_from_userid.twitter_user -%]さんのユーザーアイコン" title="[% get_favorite.twitter_user_from_userid.twitter_user %]" class="user_icon_middle" />
+						</a>
+					[% END %]
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>
+[% INCLUDE 'footer.tt' %]
+[% INCLUDE 'foot.tt' %]

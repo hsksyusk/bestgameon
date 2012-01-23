@@ -1,0 +1,68 @@
+[% USE TimeDate %]
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+			<h1 class="generic_contents_title">GOOD!の多いゲーム</h1>
+			<div class="goodgame_body">
+				[% FOREACH g = goodgame %]
+					<div class="gamelist clearfix">
+						<div class="game_name_container">
+							<div class="game_name">
+								<h2><a href="http://bestgameon.net/game/[% g.asin %]" >[% g.title %]</a></h2>
+							<p class="good_count goodgame_good">
+								[% IF g.count_good > 10 %]
+									<span class="good_list_abbr">
+										<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+										<span class="good_number onclick" >[% g.count_good %]</span>
+										<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+									</span>
+									<span class="good_list hidden">
+								[% ELSE %]
+									<span class="good_list">
+								[% END %]
+								[% FOREACH i = [1..g.count_good] %]<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />[% END %]
+									</span>
+							</p>
+							</div>
+						</div>
+						<div class="game_image_area">
+							<a href="http://bestgameon.net/game/[% g.asin %]" class="itemlink" >
+								[% IF g.ImageUrlSmall == '' %]
+									<img src="http://g-ec2.images-amazon.com/images/G/09/x-site/icons/no-img-sm.gif" class="img_game_small" alt="[% g.title %]" />
+								[% ELSE %]
+									<img src="[% g.ImageUrlSmall %]" class="img_game_small" alt="[% g.title %]" />
+								[% END %]
+							</a>
+						</div>
+					</div>
+				[% END %]
+			</div>
+			<div class="page" >
+				<ul>
+					[% IF pager.current_page == pager.first_page %]
+						<li><p class="bigrounde current">&laquo; First</p></li>
+					[% ELSE %]
+						<li><a href="http://bestgameon.net/goodgame" class="button green bigrounde" >&laquo; First</a></li>
+					[% END %]
+			
+					[% FOREACH num = pager.pages_in_navigation %]
+						[% IF num == pager.current_page %]
+							<li><p class="bigrounde current">[% num %]</p></li>
+						[% ELSE %]
+							<li><a href="http://bestgameon.net/goodgame?page=[% num %]" class="button green bigrounde" >[% num %]</a></li>
+						[% END %]
+					[% END %]
+			
+					[% IF pager.current_page == pager.last_page %]
+						<li><p class="bigrounde current">Last &raquo;</p></li>
+					[% ELSE %]
+						<li><a href="http://bestgameon.net/goodgame?page=[% pager.last_page %]" class="button green bigrounde">Last &raquo;</a></li>
+					[% END %]
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>

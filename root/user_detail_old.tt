@@ -1,0 +1,103 @@
+[% USE TimeDate %]
+<div id="container">
+	<div id="container_bordar">
+		<div id="contents_area" class="clearfix contents_bordar">
+<div class="mainbox ranking">
+<div class="user_header">
+<div class="user_image_area">
+	<a href="http://twitter.com/#!/[%- username -%]" target="_blank" ><img class="user_icon_big" src="http://img.tweetimag.es/i/[%- username -%]_b" alt="[%- username -%]"></a>
+	<br/>
+	[% INCLUDE 'favorite_area.tt' %]
+	</div>
+	<h1><a href="http://twitter.com/#!/[%- username -%]" target="_blank" >[%- username -%]</a>さんのホーム</h1>
+	[%- IF edit_flag == 1 -%]
+		<p><a href="http://bestgameon.net/edit">編集</a></p>
+	[% END %]
+	[% INCLUDE 'sbm_area.tt' %]
+</div>
+
+<div class="ranking_body">
+	<h2><a href="http://bestgameon.net/rank/[%- username -%]">[%- username -%]さんのランキング</a></h2>
+	<p>[%- TimeDate.parse(history.ranking_create).format('%Y年%m月%d日') -%]作成 / [%- TimeDate.parse(history.ranking_update).format('%Y年%m月%d日') -%]更新</p>
+
+	<div class="get_good_area">
+		<h3>もらったGOOD</h3>
+		<p>合計 <img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />×[% get_good_count %]</p>
+		<ul>
+			[% FOREACH item = get_goods %]
+				<li>
+					<a href="http://bestgameon.net/rank/[%- username -%]#rank[% item.rank %]">
+						ランキング[% item.rank %]位：[% item.title %]
+					</a>
+					[% IF item.count > 10 %]
+						<span class="good_list_abbr">
+							<a href="http://bestgameon.net/user/[% item.to_userid_asin_good.first.twitter_user_from_userid.twitter_user %]" ><img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" title="[% item.to_userid_asin_good.first.twitter_user_from_userid.twitter_user %]" /></a>
+							<span class="good_number onclick" >[% item.count %]</span>
+							<a href="http://bestgameon.net/user/[% item.to_userid_asin_good.last.twitter_user_from_userid.twitter_user %]" ><img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" title="[% item.to_userid_asin_good.last.twitter_user_from_userid.twitter_user %]" /></a>
+						</span>
+						<span class="good_list hidden">
+					[% ELSE %]
+						<span class="good_list">
+					[% END %]
+						[% FOREACH good = item.to_userid_asin_good %]<a href="http://bestgameon.net/user/[% good.twitter_user_from_userid.twitter_user %]" ><img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" title="[% good.twitter_user_from_userid.twitter_user %]" /></a>[% END %]
+						</span>
+				</li>
+			[% END %]
+		</ul>
+	</div>
+
+	<div class="give_good_area">
+		<h3>つけたGOOD</h3>
+		<p>合計 <img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />×[% give_good_count %]</p>
+		<ul>
+			[% FOREACH item = give_goods %]
+				<li>
+					<a href="http://bestgameon.net/rank/[% item.username %]#rank[% item.rank %]">
+						[% item.username %]さんのランキング[% item.rank %]位：[% item.title %]
+					</a>
+					[% IF item.count > 10 %]
+						<span class="good_list_abbr">
+							<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+							<span class="good_number onclick" >[% item.count %]</span>
+							<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />
+						</span>
+						<span class="good_list hidden">
+					[% ELSE %]
+						<span class="good_list">
+					[% END %]
+						[% FOREACH i = [1..item.count] %]<img src="[% base %]Bestgame/root/static/images/good_icon.gif" alt="GOOD!アイコン" />[% END %]
+						</span>
+				</li>
+		[% END %]
+		</ul>
+	</div>
+
+	<h3>お気に入りユーザー [% my_favorite_count %]人</h3>
+	<div>
+	[% FOREACH my_favorite = my_favorites %]
+		<a href="http://bestgameon.net/user/[%- my_favorite.twitter_user_to_userid.twitter_user -%]" >
+			<img src="http://img.tweetimag.es/i/[%- my_favorite.twitter_user_to_userid.twitter_user -%]_n" alt="[%- my_favorite.twitter_user_to_userid.twitter_user -%]さんのユーザーアイコン" title="[% my_favorite.twitter_user_to_userid.twitter_user %]" />
+		</a>
+	[% END %]
+	</div>
+
+	<h3>[%- username -%]さんをお気に入り登録しているユーザー [% get_favorite_count %]人</h3>
+	<div>
+	[% FOREACH get_favorite = get_favorites %]
+		<a href="http://bestgameon.net/user/[% get_favorite.twitter_user_from_userid.twitter_user %]" >
+			<img src="http://img.tweetimag.es/i/[%- get_favorite.twitter_user_from_userid.twitter_user -%]_n" alt="[%- get_favorite.twitter_user_from_userid.twitter_user -%]さんのユーザーアイコン" title="[% get_favorite.twitter_user_from_userid.twitter_user %]" />
+		</a>
+	[% END %]
+	</div>
+
+	<div id="ranking_item_end"></div>
+
+</div>
+</div>
+
+		</div>
+	</div>
+</div>
+<div id="sidebar_ads" >
+	[% INCLUDE 'ads_widelong.tt' %]
+</div>
